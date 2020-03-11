@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    maizer:
+        image: maizer
+        restart: always
+        build:
+            context: .
+        ports:
+            - 8001:8001
