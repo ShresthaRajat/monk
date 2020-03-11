@@ -18,7 +18,8 @@ script:
     - echo "*****      Build Sucessfull      *****"
     - echo "*****      Testing Starting      *****"
     - pytest tests
-    - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash) -t CODECOV_TOKEN
+    - echo CODECOV_TOKEN
     - pytest --cov=./
     - echo "*****     Testing Sucessfull     *****"
     
