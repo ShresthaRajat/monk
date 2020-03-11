@@ -91,3 +91,4 @@ $RECYCLE.BIN/
 __pycache__
 maizer.egg-info
 .coverage
+tests/__pycache__/__init__.cpython-37.pyc
