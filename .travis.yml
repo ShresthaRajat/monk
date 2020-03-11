@@ -13,5 +13,5 @@ script:
     - pip install -e .
     - pip install -r requirements.txt
     - echo "installed dependencies"
-    - python src.
+    - python src.Maze
     - echo "starting script"
