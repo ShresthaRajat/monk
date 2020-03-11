@@ -8,7 +8,7 @@ from glob import glob
 
 # os.system('bash install.sh')
 
-requirements = ['turtleplus', 'pytest', 'graphene', 'pytest-cov']
+requirements = ['turtleplus', 'graphene']
 
 test_requirements = ['pytest>=3', ]
 

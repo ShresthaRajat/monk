@@ -9,19 +9,18 @@ before_install:
     - sudo apt-get install python3-tk
 
 install:
-    - pip install codecov
+    - pip install pytest pytest-cov
 
 script:
-    - coverage run tests
     - echo "*****       Build Starting       *****"
     - pip install -e .
     - pip install -r requirements.txt
     - echo "*****      Build Sucessfull      *****"
     - echo "*****      Testing Starting      *****"
     - pytest tests
-    - echo "*****     Testing Sucessfull     *****"
     - bash <(curl -s https://codecov.io/bash)
     - pytest --cov=./
-
+    - echo "*****     Testing Sucessfull     *****"
+    
 after_success:
-    - codecov
+    - codecov -t CODECOV_TOKEN
