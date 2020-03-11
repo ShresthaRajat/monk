@@ -14,3 +14,4 @@ script:
     - echo "*****      Testing Starting      *****"
     - pytest tests
     - echo "*****     Testing Sucessfull     *****"
+    - bash <(curl -s https://codecov.io/bash)
