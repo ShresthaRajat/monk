@@ -2,8 +2,7 @@
 
 [![Tagged Release](https://img.shields.io/badge/release-v0-blue.svg?longCache=true)](CHANGELOG.md)
 [![Development Status](https://img.shields.io/badge/status-planning-lightgrey.svg?longCache=true)](ROADMAP.md)
-[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg?longCache=true)](https://travis-ci.org)
-[![Build Status](https://img.shields.io/badge/build-pending-lightgrey.svg?longCache=true)](https://www.appveyor.com)
+[![Build Status](https://img.shields.io/badge/build-unknown-lightgrey.svg?longCache=true)](https://travis-ci.com/ShresthaRajat/maizer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)
 [![Build Coverage](https://img.shields.io/badge/coverage-0%25-lightgrey.svg?longCache=true)](https://codecov.io)
 
 > maize generetor
@@ -30,9 +29,14 @@ _**Note:** This project was initially created by [cookiecutter-git](https://gith
 
 ## Requirements
 
+
 ## Installation
 
 ## Usage
+
+Clone this repo and then run
+
+> pip install -e .
 
 ## Development
 
