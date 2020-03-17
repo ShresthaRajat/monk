@@ -17,7 +17,6 @@ class Maze(ObjectType):
     writtenToDb = Boolean()
     points = List(List(Int))
 
-
 class Query(ObjectType):
 
     get_maze = graphene.Field(Maze)
@@ -29,8 +28,7 @@ class Query(ObjectType):
         return "Test Sucessful"
 
     def resolve_get_maze(root, info):
-        maze = {"hashId": 1, "writtenToDb": False,
-                "points": [[1, 2], [2, 3], [3, 4]]}
+        maze = {"hashId":1, "writtenToDb": False, "points": [[1,2],[2,3],[3,4]]}
         return maze
 
 

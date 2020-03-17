@@ -8,6 +8,12 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "maizer" ]
+RUN echo "hello"
 
-CMD [ "src/Maze.py" ]
+RUN pip install -e .
+
+RUN ls
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "src/server.py" ]
