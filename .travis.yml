@@ -8,19 +8,18 @@ python:
 before_install:
     - sudo apt-get install python3-tk
 
-install:
-    - pip install pytest pytest-cov
-
 script:
     - echo "*****       Build Starting       *****"
     - pip install -e .
     - pip install -r requirements.txt
+    - pip install pytest pytest-cov
     - echo "*****      Build Sucessfull      *****"
     - echo "*****      Testing Starting      *****"
     - pytest tests
-    - bash <(curl -s https://codecov.io/bash) -t CODECOV_TOKEN
-    - echo CODECOV_TOKEN
     - pytest --cov=./
+    - export CODECOV_TOKEN="token"
+    - bash <(curl -s https://codecov.io/bash)
+    - echo CODECOV_TOKEN
     - echo "*****     Testing Sucessfull     *****"
     
 after_success:
