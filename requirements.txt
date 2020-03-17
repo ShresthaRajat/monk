@@ -1,3 +1,7 @@
 turtleplus
 pytest
+flask
+flask_cors
+graphene
+flask_graphql
  

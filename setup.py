@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""The setup script."""
+"""The setup script or maizer."""
 
 from setuptools import setup, find_packages
 import os
@@ -8,7 +8,7 @@ from glob import glob
 
 # os.system('bash install.sh')
 
-requirements = ['turtleplus', 'graphene']
+requirements = ['turtleplus', 'graphene', 'flask', 'flask_graphql', 'flask_cors']
 
 test_requirements = ['pytest>=3', ]
 
