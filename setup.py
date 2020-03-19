@@ -8,7 +8,8 @@ from glob import glob
 
 # os.system('bash install.sh')
 
-requirements = ['turtleplus', 'graphene', 'flask', 'flask_graphql', 'flask_cors']
+requirements = ['turtleplus', 'graphene',
+                'flask', 'flask_graphql', 'flask_cors']
 
 test_requirements = ['pytest>=3', ]
 
