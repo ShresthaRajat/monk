@@ -16,10 +16,13 @@ script:
     - echo "*****      Build Sucessfull      *****"
     - echo "*****      Testing Starting      *****"
     - pytest tests
-    - pytest --cov=./
+    - pytest --cov=./src
     - export CODECOV_TOKEN="token"
     - bash <(curl -s https://codecov.io/bash)
-    - echo CODECOV_TOKEN
+    - echo $CODECOV_TOKEN
+    - echo "token"
+    - env
+    - printenv
     - echo "*****     Testing Sucessfull     *****"
     
 after_success:

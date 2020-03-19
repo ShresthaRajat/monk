@@ -28,6 +28,12 @@ def test_draw_random_solution_validity_check():
     assert len(solution) > 1
 
 
+def test_generate_maze():
+    sample = maze.Maze(0, False, 1)
+    sample.generate()
+    assert sample.size > 0
+
+
 # def test_genc_coordinates_is_number_pairs():
 #     output = m.genc(10)
 #     random_coordinates = random.choice(output)
