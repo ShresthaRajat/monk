@@ -18,10 +18,6 @@ script:
     - pytest tests
     - pytest --cov=./src
     - bash <(curl -s https://codecov.io/bash)
-    - echo $CODECOV_TOKEN
-    - echo "token"
-    - env
-    - printenv
     - echo "*****     Testing Sucessfull     *****"
     
 after_success:
