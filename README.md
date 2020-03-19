@@ -1,13 +1,11 @@
 # maizer
 
-[![Tagged Release](https://img.shields.io/badge/release-v0-blue.svg?longCache=true)](CHANGELOG.md)
+[![Tagged Release](https://img.shields.io/badge/release-v0.2.0-blue.svg?longCache=true)](CHANGELOG.md)
 [![Development Status](https://img.shields.io/badge/status-alpha-yellow.svg?longCache=true)](ROADMAP.md)
 [![build Status](https://travis-ci.com/ShresthaRajat/maizer.svg?token=vfBmyikLTqJ4tJUVico1&branch=dev)](https://travis-ci.com/ShresthaRajat/maizer)
 [![codecov](https://codecov.io/gh/ShresthaRajat/maizer/branch/dev/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/maizer)
 
-> maize generetor
-
-maize generetor for maize master project
+maze generetor for maze master project
 
 _**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)!_ :cookie:
 
@@ -26,7 +24,7 @@ _**Note:** This project was initially created by [cookiecutter-git](https://gith
 - [License](#license)
 
 ## Features
-This Project can host a full fledged platform for a maze generetor and provides an Endpoint which provides the required information to generate a maze.
+This Project can host a simple platform for a maze generetor and provides an Endpoint which provides the required information to generate a maze.
 
 ## Requirements
 Python 3.5 or higher for the maze generetor to work.
