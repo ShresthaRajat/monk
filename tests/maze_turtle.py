@@ -1,6 +1,6 @@
 import turtle as tt
 import time
-import src.maze as maze
+import src.maze_generator as maze
 
 
 def drawseg(points):
