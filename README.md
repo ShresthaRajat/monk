@@ -27,16 +27,18 @@ _**Note:** This project was initially created by [cookiecutter-git](https://gith
 This Project can host a simple platform for a maze generetor and provides an Endpoint which provides the required information to generate a maze.
 
 ## Requirements
-Python 3.5 or higher for the maze generetor to work.
-- Pytest
+Python 3.5 or higher for the maze generetor to work. The required python packages are:
+- flask
+- flask_cors
+- graphene
+- flask_graphql
+- turtleplus
+- pytest
+- pytest-cov
+- flake8
 
-For the API: 
-- Flask
-- Flask_Cors
-- Flask_GraphQL
-- Graphene
+> Note: These packages will be auto installed during the setup
 
-Turtleplus is also recommended for testing the genereted maize
 
 For ease of use the whole package to host the API is contenarized in docker so the following are recommended but not necessary:
 - Docker
