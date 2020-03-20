@@ -17,7 +17,6 @@ script:
     - pytest --cov=./src
     - bash <(curl -s https://codecov.io/bash)
     - flake8 cmdbox
-    - coverage run src/maze_generetor.py test --settings=cmdbox.tests_settings
     
 after_success:
     - codecov -t CODECOV_TOKEN

@@ -44,7 +44,8 @@ For ease of use the whole package to host the API is contenarized in docker so t
 - Docker
 - Docker-compose
 
-## Pakage Installation
+## Installation
+
 Clone this repo and run:
 
 ```
@@ -53,11 +54,14 @@ cd maizer
 pip install -e .
 ```
 
-## Running docker container 
+## Usage:
+
 
 With docker and docker-compose installed run this on the maizer directory:
 
->docker-compose up --build
+```
+docker-compose up --build
+```
 
 ## Development
 
