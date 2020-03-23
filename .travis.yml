@@ -8,17 +8,15 @@ python:
 before_install:
     - sudo apt-get install python3-tk
 
-script:
-    - echo "*****       Build Starting       *****"
-    - pip install -e .
+install:
     - pip install -r requirements.txt
-    - pip install pytest pytest-cov
-    - echo "*****      Build Sucessfull      *****"
-    - echo "*****      Testing Starting      *****"
+    - pip install -e .
+
+script:
     - pytest tests
     - pytest --cov=./src
     - bash <(curl -s https://codecov.io/bash)
-    - echo "*****     Testing Sucessfull     *****"
+    - flake8 cmdbox
     
 after_success:
     - codecov -t CODECOV_TOKEN

@@ -8,10 +8,17 @@ from glob import glob
 
 # os.system('bash install.sh')
 
-requirements = ['turtleplus', 'graphene',
-                'flask', 'flask_graphql', 'flask_cors']
 
-test_requirements = ['pytest>=3', ]
+requirements = ['flask==1.1.1',
+                'flask_cors==3.0.8',
+                'graphene==2.1.8',
+                'flask_graphql==2.0.1',
+                'turtleplus==0.1',
+                ]
+
+test_requirements = ['pytest==5.4.1',
+                     'pytest-cov==2.8.1',
+                     'flake8==3.7.1']
 
 setup(
     author="Rajat Shestha",
