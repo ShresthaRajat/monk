@@ -16,6 +16,6 @@ RUN ls
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "src/server.py" ]
+CMD [ "src/graphql_server.py" ]
 
 EXPOSE 8001:8001
