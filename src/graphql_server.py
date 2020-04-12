@@ -31,7 +31,7 @@ class MazeQuery(graphene.ObjectType):
         size=graphene.Int(description="The size of the maze to be to generated"),
         color=graphene.Boolean(description="The parameter to color the layers of the maze (comming Soon!)"),
         layer_approx=graphene.Int(description="The approximate numbers of layers for the maze to be generated"),
-        seed = graphene.String(description="The Seed to generate the maze"),
+        seed=graphene.String(description="The Seed to generate the maze"),
         description="Generates the maze according to the size or seed"
     )
 
@@ -42,9 +42,8 @@ class MazeQuery(graphene.ObjectType):
         return "Test Sucessful"
 
     def resolve_get_maze(root, info, layer_approx=1, color=False, size=1, seed=""):
-        writtenToDb = False
         if seed != "":
-            maze = mz.Maze(0,0,seed)
+            maze = mz.Maze(0, 0, seed)
         else:
             maze = mz.Maze(layer_approx, size)
         maze_package = {

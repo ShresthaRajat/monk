@@ -29,7 +29,7 @@ class Maze:
         current_layer = self.layers
         x = 10*current_layer
         layers = {
-            "A" : (
+            "A": (
                 [
                     [-(30+x), -(30+x)], [-(30+x), (40+x)], [-5, (40+x)],
                     [-5, (50+x)], [-(40+x), (50+x)], [-(40+x), 5],
@@ -53,7 +53,7 @@ class Maze:
                     [-(55+x), 0], [-(55+x), -(55+x)]
                 ]
             ),
-            "B" : (
+            "B": (
                 [
                     [-(30+x), -(30+x)], [-(30+x), -5], [-(40+x), -5],
                     [-(40+x), -(40+x)], [-10, -(40+x)], [-10, -(50+x)],
@@ -73,7 +73,7 @@ class Maze:
                     [-5, -(35+x)], [-5, -(55+x)], [-(55+x), -(55+x)]
                 ]
             ),
-            "C" : (
+            "C": (
                 [
                     [-(30+x), -(30+x)], [-(30+x), (40+x)],
                     [(40+x), (40+x)], [(40+x), -(40+x)],
@@ -91,7 +91,7 @@ class Maze:
                     [-(45+x), -(45+x)]
                 ]
             ),
-            "D" : (
+            "D": (
                 [
                     [-(30+x), -(30+x)], [-(30+x), 0], [-(60+x), 0],
                     [-(60+x), -(60+x)], [-10, -(60+x)], [-10, -(50+x)],
@@ -123,10 +123,9 @@ class Maze:
         }
         return layers[letter]
 
-
     def draw_random(self, letter=""):
         if letter == "":
-            letter = random.choice(["A","B","C","D"])
+            letter = random.choice(["A", "B", "C", "D"])
         return self.draw_layer(letter)
 
     def generate(self):

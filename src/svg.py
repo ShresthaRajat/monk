@@ -1,8 +1,6 @@
 import svgwrite
 import maze_generator as mz
 
-class
-
 
 def svg(x, y, stroke, stroke_width, stroke_opacity, svg_drawing):
     svg_drawing.add(svg_drawing.line(

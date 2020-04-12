@@ -1,7 +1,7 @@
 version: '3.3'
 services:
     maizer:
-        image: maizer
+        image: mazer
         restart: always
         build:
             context: .
