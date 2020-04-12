@@ -17,3 +17,5 @@ RUN ls
 ENTRYPOINT [ "python" ]
 
 CMD [ "src/server.py" ]
+
+EXPOSE 8001:8001

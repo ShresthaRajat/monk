@@ -15,21 +15,21 @@ class Maze:
         [25, -25], [-25, -25]
     ]
 
-    def __init__(self, layer_approx=50, size=5):
+    def __init__(self, layer_approx=50, size=5, seed=""):
         self.points = [] + Maze.mid
         self.solution = [] + Maze.mid_solution
         self.layers = 0
-        self.seed = ""
+        self.seed = seed
         self.color = [(0, 0, 0)]
         self.layer_approx = layer_approx
         self.size = size
         self.generate()
 
-    def draw_random(self):
+    def draw_layer(self, letter):
         current_layer = self.layers
-        x = 10*self.layers
-        random_list = [
-            (
+        x = 10*current_layer
+        layers = {
+            "A" : (
                 [
                     [-(30+x), -(30+x)], [-(30+x), (40+x)], [-5, (40+x)],
                     [-5, (50+x)], [-(40+x), (50+x)], [-(40+x), 5],
@@ -53,7 +53,7 @@ class Maze:
                     [-(55+x), 0], [-(55+x), -(55+x)]
                 ]
             ),
-            (
+            "B" : (
                 [
                     [-(30+x), -(30+x)], [-(30+x), -5], [-(40+x), -5],
                     [-(40+x), -(40+x)], [-10, -(40+x)], [-10, -(50+x)],
@@ -73,7 +73,7 @@ class Maze:
                     [-5, -(35+x)], [-5, -(55+x)], [-(55+x), -(55+x)]
                 ]
             ),
-            (
+            "C" : (
                 [
                     [-(30+x), -(30+x)], [-(30+x), (40+x)],
                     [(40+x), (40+x)], [(40+x), -(40+x)],
@@ -91,7 +91,7 @@ class Maze:
                     [-(45+x), -(45+x)]
                 ]
             ),
-            (
+            "D" : (
                 [
                     [-(30+x), -(30+x)], [-(30+x), 0], [-(60+x), 0],
                     [-(60+x), -(60+x)], [-10, -(60+x)], [-10, -(50+x)],
@@ -120,17 +120,32 @@ class Maze:
                     [-(75+x), -(75+x)]
                 ]
             )
-        ]
-        return random.choice(random_list)
+        }
+        return layers[letter]
+
+
+    def draw_random(self, letter=""):
+        if letter == "":
+            letter = random.choice(["A","B","C","D"])
+        return self.draw_layer(letter)
 
     def generate(self):
         n = 0
-        for i in range(self.size):
-            (m, n, p, c, s) = self.draw_random()
-            self.layers = n
-            self.seed = self.seed + p
-            self.points = self.points + m
-            self.solution = self.solution + s
-            self.color.append(c)
-            if n > self.layers:
-                break
+        if self.seed == "":
+            for i in range(self.size):
+                (m, n, p, c, s) = self.draw_random()
+                self.layers = n
+                self.seed = self.seed + p
+                self.points = self.points + m
+                self.solution = self.solution + s
+                self.color.append(c)
+                if n > self.layers:
+                    break
+        else:
+            _seed = self.seed
+            for layer in _seed:
+                (m, n, p, c, s) = self.draw_random(layer)
+                self.layers = n
+                self.points = self.points + m
+                self.solution = self.solution + s
+                self.color.append(c)
