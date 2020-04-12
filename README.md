@@ -1,13 +1,15 @@
 # mazer
 
+[![GitHub](https://img.shields.io/badge/developer-ShresthaRajat-black)](AUTHORS.md)
+
 [![Tagged Release](https://img.shields.io/badge/release-v0.2.0-blue.svg?longCache=true)](CHANGELOG.md)
 [![license](https://img.shields.io/badge/license-MPL%202.0-important)](LICENSE)
-[![GitHub](https://img.shields.io/badge/developer-ShresthaRajat-black)](AUTHORS.md)
 [![Development Status](https://img.shields.io/badge/status-alpha-yellow.svg?longCache=true)](ROADMAP.md)
-[![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=dev)](https://travis-ci.com/ShresthaRajat/mazer)
-[![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/dev/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
+
+[![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)](https://travis-ci.com/ShresthaRajat/mazer)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FShresthaRajat%2Fmazer%2Fbadge%3Fref%3Dmaster%26token%3D759aeafb52f9ee9c6684bfc28abf7b54bcb521b3&style=flat)](https://actions-badge.atrox.dev/ShresthaRajat/mazer/goto?ref=master&token=759aeafb52f9ee9c6684bfc28abf7b54bcb521b3)
 
+[![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
 maze generetor for maze master project
 
 _**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)!_ :cookie:
