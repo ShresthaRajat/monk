@@ -14,6 +14,7 @@ requirements = ['flask==1.1.1',
                 'graphene==2.1.8',
                 'flask_graphql==2.0.1',
                 'turtleplus==0.1',
+                'svgwrite==1.4',
                 ]
 
 test_requirements = ['pytest==5.4.1',
