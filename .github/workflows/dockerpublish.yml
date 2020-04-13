@@ -7,15 +7,15 @@ on:
       - master
 
     # Publish `v1.2.3` tags as releases.
-    tags:
-      - v*
+    # tags:
+    #   - v*
 
   # Run tests for any PRs.
-  pull_request:
+  # pull_request:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
+  IMAGE_NAME: 
 
 jobs:
   # Run tests.
@@ -38,8 +38,8 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    # Ensure test job passes before pushing image.
-    needs: test
+    # # Ensure test job passes before pushing image.
+    # needs: test
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
