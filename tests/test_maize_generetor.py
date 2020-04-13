@@ -29,7 +29,19 @@ def test_draw_random_solution_validity_check():
 
 
 def test_generate_maze():
-    sample = mz.Maze(4,
-                     4)
+    sample = mz.Maze(4, 4)
     sample.generate()
     assert sample.size > 0
+
+
+def test_generate_maze_seed():
+    sample = mz.Maze(0, 0, "AAA")
+    sample.generate()
+    assert sample.seed == "AAA"
+
+
+def test_draw_layer():
+    sample = mz.Maze()
+    output = sample.draw_layer("A")
+    layer = output[2]
+    assert layer == "A"
