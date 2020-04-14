@@ -51,8 +51,6 @@ Python 3.5 or higher for the maze generetor to work. The required python package
 
 > Note: These packages will be auto installed during the setup
 
-The Server will be hosted 
-
 For ease of use the whole package to host the API is contenarized in docker so the following are recommended but not necessary:
 - Docker
 - Docker-compose
