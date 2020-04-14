@@ -9,8 +9,10 @@
 [![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)](https://travis-ci.com/ShresthaRajat/mazer)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FShresthaRajat%2Fmazer%2Fbadge%3Fref%3Dmaster%26token%3D759aeafb52f9ee9c6684bfc28abf7b54bcb521b3&style=flat)](https://actions-badge.atrox.dev/ShresthaRajat/mazer/goto?ref=master&token=759aeafb52f9ee9c6684bfc28abf7b54bcb521b3)
 
-![Python package](https://github.com/ShresthaRajat/mazer/workflows/Python%20package/badge.svg?branch=master)
-![Python application](https://github.com/ShresthaRajat/mazer/workflows/Python%20application/badge.svg?branch=master)
+
+[![Python package](https://github.com/ShresthaRajat/mazer/workflows/Python%20package/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+package%22)
+[![Python application](https://github.com/ShresthaRajat/mazer/workflows/Python%20application/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+application%22)
+[![Docker Image CI](https://github.com/ShresthaRajat/mazer/workflows/Docker%20Image%20CI/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Docker+Image+CI%22)
 
 [![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
 
