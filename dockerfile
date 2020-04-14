@@ -14,8 +14,4 @@ RUN pip install -e .
 
 RUN ls
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "src/graphql_server.py" ]
-
-EXPOSE 8001:8001
+ENTRYPOINT [ "python", "-m", "src.graphql_server" ]
