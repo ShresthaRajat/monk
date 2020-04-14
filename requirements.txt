@@ -6,3 +6,4 @@ turtleplus==0.1
 pytest==5.4.1
 pytest-cov==2.8.1
 flake8==3.7.1
+svgwrite==1.4

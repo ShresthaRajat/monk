@@ -1,4 +1,4 @@
-from src.schema import MazeType, MazeQuery, MazeSchema
+from src.schema import MazeSchema
 
 
 from flask import Flask
