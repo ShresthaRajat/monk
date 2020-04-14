@@ -1,5 +1,5 @@
 import svgwrite
-import maze_generator as mz
+import src.maze_generator as mz
 
 
 class Svg_Generetor:
