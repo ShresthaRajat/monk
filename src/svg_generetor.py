@@ -28,10 +28,10 @@ class Svg_Generetor:
         maze_solution = self.maze.solution
         maze_seed = self.maze.seed
 
-        if self.file_name != "":
-            svg_drawing = svgwrite.Drawing('src/static/data/'+self.file_name+'.svg', profile='full')
-        else:
-            svg_drawing = svgwrite.Drawing('src/static/data/'+maze_seed+'.svg', profile='full')
+        if self.file_name == "":
+            self.file_name = maze_seed
+
+        svg_drawing = svgwrite.Drawing('src/static/data/'+self.file_name+'.svg', profile='full')
 
         for i in range(len(maze_points)-1):
             ax = maze_points[i][0] + maze_last_point + 2
@@ -52,7 +52,13 @@ class Svg_Generetor:
                 # else :
                 #     cy = cy
                 #     dy = dy + 1
-                self.svg_draw([cx, cy], [dx, dy], svgwrite.rgb(10, 30, 10, '%'), 1, 0.7, svg_drawing)
+                self.svg_data = self.svg_draw([cx, cy], [dx, dy], svgwrite.rgb(10, 30, 10, '%'), 1, 0.7, svg_drawing)
         padding = [(maze_last_point*2)+3, (maze_last_point*2)+3]
         self.svg_draw([0, 0], padding, svgwrite.rgb(5, 5, 5, '%'), 1, 0.0, svg_drawing)
         svg_drawing.save()
+
+    def read_svg(self):
+        filename = 'src/static/data/'+self.file_name+'.svg'
+        with open(filename) as f:
+            content = f.readlines()
+        return (content[1])

@@ -13,6 +13,11 @@ def test_create_svg_with_solution():
     assert ("solution.svg" in listdir("./src/static/data"))
 
 
+def test_read_svg():
+    x = svg.Svg_Generetor("solution", True, 3, 12, "")
+    assert x.read_svg()
+
+
 def test_clear_files():
     test_files = (
         "test.svg" in listdir("./src/static/data")

@@ -20,7 +20,8 @@ def test_query():
             'size': 0,
             'seed': 'A',
             'layers': 3}
-    }
+        }
 
 
-test_query()
+def test_index():
+    assert gql.index() == "API endpoints available on: /api"
