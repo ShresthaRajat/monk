@@ -6,7 +6,6 @@ from flask_cors import CORS
 from flask_graphql import GraphQLView
 
 app = Flask(__name__)
-app.debug = True
 CORS(app)
 
 schema = MazeSchema
@@ -14,7 +13,7 @@ schema = MazeSchema
 
 @app.route("/")
 def index():
-    return "API endpoints available on: /api"
+    return "<h1>Endpoints on api/</h1>"
 
 
 app.add_url_rule(
@@ -26,4 +25,4 @@ app.add_url_rule(
 )
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8001)
+    app.run()
