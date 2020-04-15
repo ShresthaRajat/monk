@@ -38,21 +38,21 @@ class Svg_Generetor:
             ay = maze_points[i][1] + maze_last_point + 2
             bx = maze_points[i+1][0] + maze_last_point + 2
             by = maze_points[i+1][1] + maze_last_point + 2
-            self.svg_draw([ax, ay], [bx, by], svgwrite.rgb(5, 5, 5, '%'), 3, 0.99, svg_drawing)
+            self.svg_draw([ax, ay], [bx, by], svgwrite.rgb(5, 5, 5, '%'), 2.8, 0.99, svg_drawing)
         print(1)
         if self.show_solution:
             for j in range(len(maze_solution)-1):
-                cx = maze_solution[j][0] + maze_last_point + 1
-                cy = maze_solution[j][1] + maze_last_point + 1
-                dx = maze_solution[j+1][0] + maze_last_point + 1
-                dy = maze_solution[j+1][1] + maze_last_point + 1
+                cx = maze_solution[j][0] + maze_last_point + 2
+                cy = maze_solution[j][1] + maze_last_point + 2
+                dx = maze_solution[j+1][0] + maze_last_point + 2
+                dy = maze_solution[j+1][1] + maze_last_point + 2
                 # if cx == dx:
                 #     cy = cy + 1
                 #     dy = dy
                 # else :
                 #     cy = cy
                 #     dy = dy + 1
-                self.svg_data = self.svg_draw([cx, cy], [dx, dy], svgwrite.rgb(10, 30, 10, '%'), 1, 0.7, svg_drawing)
+                self.svg_data = self.svg_draw([cx, cy], [dx, dy], svgwrite.rgb(70, 00, 00, '%'), 1.5, 0.8, svg_drawing)
         padding = [(maze_last_point*2)+3, (maze_last_point*2)+3]
         self.svg_draw([0, 0], padding, svgwrite.rgb(5, 5, 5, '%'), 1, 0.0, svg_drawing)
         svg_drawing.save()
