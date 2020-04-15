@@ -23,6 +23,3 @@ app.add_url_rule(
         graphiql=True
     )
 )
-
-if __name__ == "__main__":
-    app.run()
