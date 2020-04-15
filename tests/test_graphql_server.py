@@ -43,4 +43,4 @@ def test_svg_query():
 
 
 def test_index():
-    assert gql.index() == "API endpoints available on: /api"
+    assert gql.index()
