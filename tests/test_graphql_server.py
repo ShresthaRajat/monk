@@ -42,5 +42,5 @@ def test_svg_query():
         }
 
 
-def test_index():
-    assert gql.index()
+def test_gen_maze():
+    assert gql.gen_maze()

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="./static/style.css">
+<script type="text/javascript">window["_gaUserPrefs"] = { ioo: function () { return true; } }
+</script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Maze Master</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="header clearfix">
+      <!-- <nav>
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              Reload
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/solve">
+              Solve
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </nav> -->
+      <h3 class="text-muted">Maze Master</h3>
+      </br>
+      </br>
+      <h6>Endpoints available on /api</h6>
+    </div>
+    <div class="jumbotron" >
+        <object type="image/svg+xml" 
+        data= {{ maze|safe }} style="height: 80vh; width: 80vw;"></object>
+    </div>
+    <footer class="footer">
+      <p>© Rajat Shrestha 2019</p>
+    </footer>
+  </div> <!-- /container -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+  <!--J Query essentials-->
+  <!-- <script src="./static/script.js"></script> -->
+</body>
+
+</html>
