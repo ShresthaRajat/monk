@@ -7,7 +7,6 @@ from flask_cors import CORS
 from flask_graphql import GraphQLView
 
 app = Flask(__name__)
-app.debug = True
 CORS(app)
 
 schema = MazeSchema
