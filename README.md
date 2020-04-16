@@ -63,16 +63,16 @@ For ease of use the whole package to host the API is contenarized in docker so t
 Clone this repo and run:
 
 ```
-git clone https://github.com/ShresthaRajat/maizer.git
+git clone https://github.com/ShresthaRajat/mazer.git
 
-cd maizer
+cd mazer
 
 pip install -e .
 ```
 
 you can skip this step if you want to use docker (docker-compose insted)
 
-With docker and docker-compose installed run this on the maizer directory:
+With docker and docker-compose installed run this on the mazer directory:
 
 ```
 docker-compose up --build

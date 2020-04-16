@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""The setup script or maizer."""
+"""The setup script or mazer."""
 
 from setuptools import setup, find_packages
 import os
@@ -41,14 +41,14 @@ setup(
     install_requires=requirements,
     include_package_data=True,
     keywords='fleet_management',
-    name='maizer',
+    name='mazer',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[os.path.splitext(os.path.basename(path))[0]
                 for path in glob('src/*.py')],
     test_suite='tests',
     tests_require=test_requirements,
-    url="https://github.com/ShresthaRajat/maizer",
+    url="https://github.com/ShresthaRajat/mazer",
     version='0.1.0',
     zip_safe=True,
 )

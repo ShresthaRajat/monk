@@ -89,7 +89,7 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/linux,windows,macos,git
 .env
 __pycache__
-maizer.egg-info
+mazer.egg-info
 .coverage
 tests/__pycache__/__init__.cpython-37.pyc
 .vscode/settings.json

@@ -20,6 +20,6 @@ Make sure to have atomic commits and contextual commit messages!
 
 ["How to Write a Git Commit Message" by Chris Beams.][chris-beams]
 
-[issue-link]: https://github.com/shrestharajat/maizer/issues/new
-[merge-link]: https://github.com/shrestharajat/maizer/compare
+[issue-link]: https://github.com/shrestharajat/mazer/issues/new
+[merge-link]: https://github.com/shrestharajat/mazer/compare
 [chris-beams]: http://chris.beams.io/posts/git-commit/
