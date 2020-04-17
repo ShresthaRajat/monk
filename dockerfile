@@ -6,6 +6,8 @@ COPY . /app
 
 RUN pip install -r requirements.txt
 
-RUN pip install -e .
+ENTRYPOINT [ "python" ]
 
-ENTRYPOINT [ "python", "app.py"]
+CMD [ "app.py" ]
+
+EXPOSE 18001:18001

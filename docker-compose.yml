@@ -1,9 +1,9 @@
 version: '3.3'
 services:
-    maizer:
+    mazer:
         image: mazer
         restart: always
         build:
             context: .
         ports:
-            - 8808:8808
+            - 18001:18001
