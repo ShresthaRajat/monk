@@ -2,4 +2,5 @@ from src.graphql_server import app
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=18001)
+    app.debug = True
+    app.run(host='0.0.0.0', port=8001)

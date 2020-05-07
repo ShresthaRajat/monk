@@ -6,4 +6,4 @@ services:
         build:
             context: .
         ports:
-            - 18001:18001
+            - 8001:8001

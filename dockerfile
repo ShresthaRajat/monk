@@ -10,4 +10,4 @@ ENTRYPOINT [ "python" ]
 
 CMD [ "app.py" ]
 
-EXPOSE 18001:18001
+EXPOSE 8001:8001
