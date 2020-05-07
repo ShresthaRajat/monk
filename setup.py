@@ -15,6 +15,8 @@ requirements = ['flask==1.1.1',
                 'flask_graphql==2.0.1',
                 'turtleplus==0.1',
                 'svgwrite==1.4',
+                'pymongo==3.10.1',
+                'bcrypt==3.1.7'
                 ]
 
 test_requirements = ['pytest==5.4.1',
