@@ -13,8 +13,6 @@ import os
 # load schema and dotenv files
 schema = MazeSchema
 load_dotenv()
-print(os.getenv("SECRET_KEY"))
-print(os.getenv("MONGO_MAZER_KEY"))
 
 # flask app configs
 app = Flask(__name__)
