@@ -1,0 +1,10 @@
+
+{% extends "layout.html" %}
+{% block body %} 
+<div class="container">
+    <h1>
+        'You are logged in as ' + {{ session['username'] }}
+        <b><a href = '/logout'>click here to log out</a></b>
+    </h1>   
+</div>
+{% endblock %}
