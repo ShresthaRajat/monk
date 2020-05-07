@@ -2,6 +2,7 @@ from src.schema import MazeSchema
 from flask import Flask, render_template, url_for, request, session, redirect
 from flask_cors import CORS
 from flask_graphql import GraphQLView
+from dotenv import load_dotenv
 import src.svg_generetor as sv
 import json
 import pymongo
@@ -9,14 +10,19 @@ import bcrypt
 import os
 
 
-app = Flask(__name__)
-CORS(app)
-
+# load schema and dotenv files
 schema = MazeSchema
+load_dotenv()
 
-conn = os.getenv("CONN")
-mongo = pymongo.MongoClient(conn)
-db = mongo["mydatabase"]
+# flask app configs
+app = Flask(__name__)
+app.config['SESSION_TYPE'] = 'mongo'
+app.debug = os.getenv('DEBUG')
+app.secret_key = os.getenv("SECRET_KEY")
+
+# mongo db configs
+client = pymongo.MongoClient(os.getenv("MONGO_MAZER_KEY"))
+db = client["mydatabase"]
 
 
 def gen_maze():
@@ -33,7 +39,7 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        users = mongo.db.users
+        users = client.db.users
         login_user = users.find_one({'name': request.form['username']})
         if login_user:
             x = request.form['pass'].encode('utf-8')
@@ -65,7 +71,7 @@ def logout():
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        users = mongo.db.users
+        users = client.db.users
         existing_user = users.find_one({'name': request.form['username']})
 
         if existing_user is None:
@@ -77,7 +83,7 @@ def register():
                 users.insert(
                     {'name': request.form['username'], 'password': hashpass})
                 session['username'] = request.form['username']
-                return redirect(url_for('index'))
+                return redirect(url_for('login'))
             return 'Passwords do not match!'
 
         return 'That username already exists!'
