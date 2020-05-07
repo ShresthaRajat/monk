@@ -16,7 +16,9 @@ requirements = ['flask==1.1.1',
                 'turtleplus==0.1',
                 'svgwrite==1.4',
                 'pymongo==3.10.1',
-                'bcrypt==3.1.7'
+                'bcrypt==3.1.7',
+                'python-dotenv==0.13.0',
+                'dnspython==1.16.0'
                 ]
 
 test_requirements = ['pytest==5.4.1',
