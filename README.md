@@ -72,6 +72,15 @@ pip install -e .
 
 you can skip this step if you want to use docker (docker-compose insted)
 
+create a .env file with mongo key, flask secret key, and flask debug status
+
+```
+MONGO_MAZER_KEY="connection string for python 3.6 or greater"
+SECRET_KEY="your secret key"
+DEBUG=True/False
+
+```
+
 With docker and docker-compose installed run this on the mazer directory:
 
 ```
