@@ -1,6 +1,7 @@
 {% extends "layout.html" %} 
 {% block body %}
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+  
   <div class="container">
     <a class="navbar-brand" href="{{ url_for('index') }}">Mazer</a>
     <button
@@ -34,6 +35,11 @@
 <div
   class="flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap"
 >
+<!-- <div class="container">
+  <div class="jumbotron" style="align-items: center;">
+    <object type="image/svg+xml" data= {{ maze|safe }} style="height: 80vh; width: 80vw;"></object>
+  </div>
+</div> -->
   <div class="container text-center">
     <div class="row">
       <div class="col-md-4">
@@ -80,21 +86,7 @@
       <div
         class="col-auto col-md-8 align-self-center m-auto"
         style="min-width: 700px;">
-        <object
-          type="image/svg+xml"
-          data="{{ maze|safe }}"
-          style="height: 700px;"
-          class="img-thumbnail img-fluid float-none d-lg-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center m-auto justify-content-lg-center align-items-lg-center visible"
-        ></object>
-        <!-- <img
-          class="img-thumbnail img-fluid float-none d-lg-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center m-auto justify-content-lg-center align-items-lg-center visible"
-          data-toggle="tooltip"
-          data-bs-tooltip=""
-          src="assets/img/page.svg"
-          width="700px"
-          height="700px"
-          style="height: 700px;"
-        /> -->
+        <object type="image/svg+xml" data= {{ maze|safe }} style="height: 80vh; width: 80vw;"></object>
       </div>
     </div>
   </div>
