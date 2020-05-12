@@ -1,6 +1,6 @@
 from src.schema import MazeSchema
 from flask import Flask, render_template, url_for, request, session, redirect
-from flask_cors import CORS
+from flask_cors import CORS # noqa
 from flask_graphql import GraphQLView
 from dotenv import load_dotenv
 import src.svg_generetor as sv
