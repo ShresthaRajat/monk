@@ -62,3 +62,4 @@ class Svg_Generetor:
         with open(filename) as f:
             content = f.readlines()
         return (content[1])
+        

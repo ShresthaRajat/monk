@@ -7,6 +7,7 @@ import src.svg_generetor as sv
 import json
 import pymongo
 import bcrypt
+import random
 import os
 
 
@@ -25,15 +26,20 @@ client = pymongo.MongoClient(os.getenv("MONGO_MAZER_KEY"))
 db = client["mydatabase"]
 
 
-def gen_maze():
-    svg_maze = sv.Svg_Generetor("page", "False", 9, 20, "")
-    print(svg_maze.file_name)
-    return "/static/data/page.svg"
+def gen_maze(size):
+    svg_maze = sv.Svg_Generetor("page", "False", size, 5, "")
+    # print(svg_maze.file_name)
+    # print(svg_maze.read_svg())
+    return svg_maze.read_svg()
 
+
+@app.route("/test")
+def test():
+    return gen_maze(15)
 
 @app.route("/")
 def index():
-    return render_template('index.html', maze=json.dumps(gen_maze()))
+    return render_template('index.html', maze=gen_maze(4))
 
 
 @app.route('/login', methods=['POST', 'GET'])
