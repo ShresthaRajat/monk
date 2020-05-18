@@ -26,20 +26,44 @@ client = pymongo.MongoClient(os.getenv("MONGO_MAZER_KEY"))
 db = client["mydatabase"]
 
 
-def gen_maze(size):
-    svg_maze = sv.Svg_Generetor("page", "False", size, 5, "")
+def gen_maze(size, solution=False, seed=""):
+    svg_maze = sv.Svg_Generetor("page", solution, size, 5, seed)
     # print(svg_maze.file_name)
     # print(svg_maze.read_svg())
     return svg_maze.read_svg()
 
-
+ 
 @app.route("/test")
 def test():
-    return gen_maze(15)
+    return gen_maze(15, True)
 
 @app.route("/")
 def index():
-    return render_template('index.html', maze=gen_maze(4))
+    return render_template('index.html', maze=gen_maze(4)) 
+
+@app.route("/generate", methods=['POST', 'GET'])
+def generate():
+    if request.form.get('solution'):
+        solution = True
+    else:
+        solution = False
+    print(solution)
+    if request.method == 'POST':
+        try:
+            size = int(request.form['size'])
+        except:
+            size = 4
+        seed = request.form['seed']
+
+        if size < 1:
+            size = 5
+        
+        if  isinstance(seed, str):
+            pass
+        else:
+            seed = ""
+        return render_template('index.html', maze=gen_maze(size, solution, seed))
+
 
 
 @app.route('/login', methods=['POST', 'GET'])
