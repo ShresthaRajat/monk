@@ -43,4 +43,4 @@ def test_svg_query():
 
 
 def test_gen_maze():
-    assert gql.gen_maze()
+    assert gql.gen_maze(1)
