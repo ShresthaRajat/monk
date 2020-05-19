@@ -62,5 +62,10 @@ def test_svg_query():
     assert result.data == {"getSvg": {"seed": "A"}}
 
 
+def test_svg_query_2():
+    result = gql.schema.execute(svg_query_2)
+    assert result.data == {"getSvg": {"size": 7}}
+
+
 def test_gen_maze():
     assert gql.gen_maze(1)
