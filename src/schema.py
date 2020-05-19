@@ -61,7 +61,7 @@ class MazeQuery(graphene.ObjectType):
         }
         return return_dict
 
-    def resolve_get_maze(root, info, layerApprox=1, color=False, size=1, seed=""):
+    def resolve_get_maze(root, info, layerApprox=1, color=False, size=4, seed=""):
         if seed != "":
             maze = mz.Maze(0, 0, seed)
         else:
