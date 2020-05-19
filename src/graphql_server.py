@@ -1,15 +1,12 @@
 from src.schema import MazeSchema
-from flask import Flask, render_template, url_for, request, session, redirect
-from flask_cors import CORS # noqa
+from flask import Flask, render_template, url_for, request, session, redirect, flash
+from flask_cors import CORS  # noqa
 from flask_graphql import GraphQLView
 from dotenv import load_dotenv
 import src.svg_generetor as sv
-import json
 import pymongo
 import bcrypt
-import random
 import os
-
 
 # load schema and dotenv files
 schema = MazeSchema
@@ -27,43 +24,44 @@ db = client["mydatabase"]
 
 
 def gen_maze(size, solution=False, seed=""):
-    svg_maze = sv.Svg_Generetor("page", solution, size, 5, seed)
-    # print(svg_maze.file_name)
-    # print(svg_maze.read_svg())
+    svg_maze = sv.Svg_Generetor("page", solution, size, 60, seed)
     return svg_maze.read_svg()
 
- 
+
 @app.route("/test")
 def test():
     return gen_maze(15, True)
 
+
 @app.route("/")
 def index():
-    return render_template('index.html', maze=gen_maze(4)) 
+    return render_template('index.html', maze=gen_maze(4))
+
 
 @app.route("/generate", methods=['POST', 'GET'])
 def generate():
-    if request.form.get('solution'):
-        solution = True
-    else:
-        solution = False
-    print(solution)
+
     if request.method == 'POST':
+        if request.form.get('solution'):
+            solution = True
+        else:
+            solution = False
         try:
             size = int(request.form['size'])
-        except:
+        except ValueError:
             size = 4
-        seed = request.form['seed']
 
+        seed = request.form['seed']
         if size < 1:
-            size = 5
-        
-        if  isinstance(seed, str):
+            size = 4
+
+        if isinstance(seed, str):
             pass
         else:
             seed = ""
-        return render_template('index.html', maze=gen_maze(size, solution, seed))
 
+        return render_template('index.html',
+                               maze=gen_maze(size, solution, seed))
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -78,7 +76,8 @@ def login():
             if bcrypt.hashpw(x, y) == z:
                 session['username'] = request.form['username']
                 return redirect(url_for('login'))
-        return 'Invalid username/password combination'
+        flash('Invalid username/password combination')
+        return render_template('login.html')
     elif 'username' in session:
         return redirect(url_for('home'))
     return render_template('login.html')
@@ -102,29 +101,36 @@ def logout():
 def register():
     if request.method == 'POST':
         users = client.db.users
+        pass1 = request.form['pass1'].encode('utf-8')
+        pass2 = request.form['pass2'].encode('utf-8')
+        if request.form.get('agree'):
+            agree = True
+        else:
+            agree = False
+        print(agree)
         existing_user = users.find_one({'name': request.form['username']})
-
         if existing_user is None:
-            pass1 = request.form['pass1'].encode('utf-8')
-            pass2 = request.form['pass2'].encode('utf-8')
-            if pass1 == pass2:
-                hashpass = bcrypt.hashpw(
-                    pass1, bcrypt.gensalt())
-                users.insert(
-                    {'name': request.form['username'], 'password': hashpass})
-                session['username'] = request.form['username']
-                return redirect(url_for('login'))
-            return 'Passwords do not match!'
 
-        return 'That username already exists!'
+            if pass1 == pass2:
+                if agree:
+                    hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
+                    users.insert({
+                        'name': request.form['username'],
+                        'password': hashpass
+                    })
+                    session['username'] = request.form['username']
+                    return redirect(url_for('login'))
+                flash('You have to agree the license terms.')
+                return render_template('register.html')
+            flash('Passwords do not match!')
+            return render_template('register.html')
+        flash('That username already exists!')
+        return render_template('register.html')
 
     return render_template('register.html')
 
 
-app.add_url_rule(
-    "/api", view_func=GraphQLView.as_view(
-        "graphql",
-        schema=schema,
-        graphiql=True
-    )
-)
+app.add_url_rule("/api",
+                 view_func=GraphQLView.as_view("graphql",
+                                               schema=schema,
+                                               graphiql=True))
