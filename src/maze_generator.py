@@ -138,7 +138,7 @@ class Maze:
                 self.points = self.points + m
                 self.solution = self.solution + s
                 self.color.append(c)
-                if n > self.layers:
+                if n > self.layer_approx:
                     break
         else:
             _seed = self.seed

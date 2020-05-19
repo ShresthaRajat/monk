@@ -45,3 +45,9 @@ def test_draw_layer():
     output = sample.draw_layer("A")
     layer = output[2]
     assert layer == "A"
+
+
+def test_layer_break():
+    sample = mz.Maze(10, 10, "AAA")
+    sample.generate()
+    assert sample.seed == "AAA"
