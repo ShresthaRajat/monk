@@ -7,7 +7,7 @@ import src.svg_generetor as sv
 import pymongo
 import bcrypt
 import os
-import json
+import json # noqa
 
 # load schema and dotenv files
 schema = MazeSchema
@@ -95,9 +95,8 @@ def home():
         maze_list = []
         for x in maze_coll.find():
             if x['user'] == session['username']:
-                maze_list.append("static/data/"+ x['seed']+'.svg')
+                maze_list.append("static/data/" + x['seed']+'.svg')
                 gen_maze(1, True, x['seed'], x['seed'])
-            print(maze_list)
         return render_template('user.html', data=maze_list)
     return render_template('login.html')
 
@@ -155,10 +154,10 @@ def seed_check(a):
 def mazeadd():
     if 'username' in session:
         if request.method == 'POST':
-            if request.form.get('solution'):
-                solution = True
-            else:
-                solution = False
+            if not request.form.get('agree'):
+                flash('Download is unavailable for publishing. Please agree that you are not publishing the maze')
+                return redirect(url_for('login'))
+            
             seed = request.form['seed']
             if not seed_check(seed):
                 flash('Seed can only be combination of A, B, C and D')
@@ -174,21 +173,4 @@ def mazeadd():
     return render_template('register.html')
 
 
-@app.route('/watch')
-def watch():
-    if 'username' in session:
-        # if request.method == 'POST':
-        maze_coll = client.db.maze
-        for x in maze_coll.find():
-            if x['user'] == session['username']:
-                print(x['seed'])
-        return '<h1>'+ "watch" + '</h1>'
-    return '<h1>ERROR! 1</h1>'
-
-
-
-
-app.add_url_rule("/api",
-                 view_func=GraphQLView.as_view("graphql",
-                                               schema=schema,
-                                               graphiql=True))
+app.add_url_rule("/api", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True))
