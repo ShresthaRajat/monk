@@ -7,6 +7,7 @@ import src.svg_generetor as sv
 import pymongo
 import bcrypt
 import os
+import json
 
 # load schema and dotenv files
 schema = MazeSchema
@@ -23,8 +24,8 @@ client = pymongo.MongoClient(os.getenv("MONGO_MAZER_KEY"))
 db = client["mydatabase"]
 
 
-def gen_maze(size, solution=False, seed=""):
-    svg_maze = sv.Svg_Generetor("page", solution, size, 60, seed)
+def gen_maze(size, solution=False, seed="", filename="page"):
+    svg_maze = sv.Svg_Generetor(filename, solution, size, 60, seed)
     return svg_maze.read_svg()
 
 
@@ -69,7 +70,7 @@ def login():
     if request.method == 'POST':
         users = client.db.users
         login_user = users.find_one({'name': request.form['username']})
-        if login_user:
+        if login_user and request.form['username'] != "":
             x = request.form['pass'].encode('utf-8')
             y = login_user['password']
             z = login_user['password']
@@ -86,7 +87,17 @@ def login():
 @app.route('/home', methods=['GET'])
 def home():
     if 'username' in session:
-        return render_template('user.html')
+        maze_coll = client.db.maze
+        maze_list = []
+        for x in maze_coll.find():
+            if x['user'] == session['username']:
+                print(x['seed'])
+                maze_list.append(x['seed'])
+                gen_maze(1, True, x['seed'], x['seed'])
+        s = json.dumps(maze_list)
+        print(s)
+        print(type(s))
+        return render_template('user.html', data=maze_list)
     return render_template('login.html')
 
 
@@ -128,6 +139,10 @@ def register():
         return render_template('register.html')
 
     return render_template('register.html')
+
+
+
+
 
 
 app.add_url_rule("/api",

@@ -8,4 +8,23 @@
         <b><a href = '/logout'>click here to log out</a></b>
     </h1>   
 </div>
+<div class="container" style="text-align: center;">
+    <h2>Saved mazes:</h2>
+    <ul>
+        {% for item in data %}
+        <li>{{ item }}</li>
+    {% endfor %}
+        
+    </ul>
+
+    <form method=POST action="{{ url_for('mazeadd') }}">
+        <h2 class="text-center"><strong>Add</strong> a maze!!</h2>
+        <div class="form-group"><input class="form-control" type="text" name="seed" placeholder="eg AAAAAAA or AAAB"></div>
+        <div class="form-group">
+            <div class="form-check"><label class="form-check-label"><input type="form-check" name="solution" value="Not Nulls">I agree to the license terms.</label></div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">Add now!!</button></div></form>
+
+</div>
 {% endblock %}
