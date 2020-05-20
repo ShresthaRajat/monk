@@ -55,7 +55,7 @@ def generate():
         seed = request.form['seed']
         if not seed_check(seed):
             flash('Seed can only be combination of A, B, C and D')
-            return redirect(url_for('login'))
+            return redirect(url_for('generate'))
         if size < 1:
             size = 4
 
