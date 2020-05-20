@@ -91,12 +91,9 @@ def home():
         maze_list = []
         for x in maze_coll.find():
             if x['user'] == session['username']:
-                print(x['seed'])
                 maze_list.append(x['seed'])
                 gen_maze(1, True, x['seed'], x['seed'])
         s = json.dumps(maze_list)
-        print(s)
-        print(type(s))
         return render_template('user.html', data=maze_list)
     return render_template('login.html')
 
@@ -118,7 +115,6 @@ def register():
             agree = True
         else:
             agree = False
-        print(agree)
         existing_user = users.find_one({'name': request.form['username']})
         if existing_user is None:
 
@@ -141,6 +137,49 @@ def register():
     return render_template('register.html')
 
 
+def seed_check(a):
+    flag = True
+    for i in a:
+        if i not in ["A", "B", "C", "D"]:
+            flag = False
+    if a == "":
+        flag = False
+    return(flag)
+
+
+@app.route('/mazeadd', methods=['POST', 'GET'])
+def mazeadd():
+    if 'username' in session:
+        if request.method == 'POST':
+            if request.form.get('solution'):
+                solution = True
+            else:
+                solution = False
+            seed = request.form['seed']
+            if not seed_check(seed):
+                flash('Seed can only be combination of A, B, C and D')
+                return redirect(url_for('login'))
+
+            maze_coll = client.db.maze
+            maze_coll.insert({'user': session['username'], 'seed': seed})
+            return redirect(url_for('login'))
+        else:
+            flash('Adding Failed')
+            return redirect(url_for('login'))
+    flash('You have to register/login to proceed!.')
+    return render_template('register.html')
+
+
+@app.route('/watch')
+def watch():
+    if 'username' in session:
+        # if request.method == 'POST':
+        maze_coll = client.db.maze
+        for x in maze_coll.find():
+            if x['user'] == session['username']:
+                print(x['seed'])
+        return '<h1>'+ "watch" + '</h1>'
+    return '<h1>ERROR! 1</h1>'
 
 
 
