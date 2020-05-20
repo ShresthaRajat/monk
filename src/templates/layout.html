@@ -20,17 +20,17 @@
 
 <body>
 
-    
-    {% block body %}{% endblock %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-danger" role="alert" style="align-items: center; text-align: center;">
+            <div class="alert alert-danger" role="alert" style="align-items: center; text-align: center; margin-bottom: -20px; z-index: 10;">
                 Error! {{ message }}
               </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
+    {% block body %}{% endblock %}
+    
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
