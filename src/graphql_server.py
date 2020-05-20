@@ -91,9 +91,9 @@ def home():
         maze_list = []
         for x in maze_coll.find():
             if x['user'] == session['username']:
-                maze_list.append(x['seed'])
+                maze_list.append("static/data/"+ x['seed']+'.svg')
                 gen_maze(1, True, x['seed'], x['seed'])
-        s = json.dumps(maze_list)
+            print(maze_list)
         return render_template('user.html', data=maze_list)
     return render_template('login.html')
 
