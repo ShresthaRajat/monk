@@ -1,4 +1,4 @@
-from src.schema import MazeSchema
+from src.maze_generator.schema import MazeSchema
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from flask_cors import CORS  # noqa
 from flask_graphql import GraphQLView
