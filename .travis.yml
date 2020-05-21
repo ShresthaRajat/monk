@@ -14,7 +14,7 @@ install:
 
 script:
     - pytest tests
-    - pytest --cov=./src/maze_generetor
+    - pytest --cov=./src/maze_generator
     - bash <(curl -s https://codecov.io/bash)
     - flake8 cmdbox
     

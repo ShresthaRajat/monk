@@ -110,13 +110,13 @@ htmlcov/src___init___py.html
 htmlcov/src_graphql_server_py.html
 htmlcov/src_maze_generator_py.html
 htmlcov/src_schema_py.html
-htmlcov/src_svg_generetor_py.html
+htmlcov/src_svg_generator_py.html
 htmlcov/status.json
 htmlcov/style.css
 htmlcov/tests___init___py.html
 htmlcov/tests_maze_turtle_py.html
 htmlcov/tests_test_graphql_server_py.html
-htmlcov/tests_test_maize_generetor_py.html
+htmlcov/tests_test_maize_generator_py.html
 htmlcov/tests_test_svg_py.html
 tests/__pycache__/__init__.cpython-37.pyc
 tests/__pycache__/__init__.cpython-37.pyc

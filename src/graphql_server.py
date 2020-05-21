@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, session, redirect, f
 from flask_cors import CORS  # noqa
 from flask_graphql import GraphQLView
 from dotenv import load_dotenv
-import src.maze_generetor.maze_svg as sv
+import src.maze_generator.maze_svg as sv
 import pymongo
 import bcrypt
 import os
@@ -25,7 +25,7 @@ db = client["mydatabase"]
 
 
 def gen_maze(size, solution=False, seed="", filename="page"):
-    svg_maze = sv.Svg_Generetor(filename, solution, size, 60, seed)
+    svg_maze = sv.Svg_generator(filename, solution, size, 60, seed)
     return svg_maze.read_svg()
 
 

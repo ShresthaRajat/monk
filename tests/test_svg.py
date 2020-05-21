@@ -1,20 +1,20 @@
 import pytest  # noqa
 from os import listdir, remove
-import src.maze_generetor.maze_svg as svg
+import src.maze_generator.maze_svg as svg
 
 
 def test_create_svg():
-    svg.Svg_Generetor("test", True, 3, 12, "")
+    svg.Svg_generator("test", True, 3, 12, "")
     assert ("test.svg" in listdir("./src/static/data"))
 
 
 def test_create_svg_with_solution():
-    svg.Svg_Generetor("solution", True, 3, 12, "")
+    svg.Svg_generator("solution", True, 3, 12, "")
     assert ("solution.svg" in listdir("./src/static/data"))
 
 
 def test_read_svg():
-    x = svg.Svg_Generetor("solution", True, 3, 12, "")
+    x = svg.Svg_generator("solution", True, 3, 12, "")
     assert x.read_svg()
 
 

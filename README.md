@@ -19,7 +19,7 @@
 [![Heroku App Status](http://heroku-shields.herokuapp.com/maze-r)](https://maze-r.herokuapp.com)
 
 
-maze generetor for maze master project
+maze generator for maze master project
 
 _**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)!_ :cookie:
 
@@ -38,10 +38,10 @@ _**Note:** This project was initially created by [cookiecutter-git](https://gith
 - [License](#license)
 
 ## Features
-This Project can host a simple platform for a maze generetor and provides an Endpoint which provides the required information to generate a maze.
+This Project can host a simple platform for a maze generator and provides an Endpoint which provides the required information to generate a maze.
 
 ## Requirements
-Python 3.5 or higher for the maze generetor to work. The required python packages are:
+Python 3.5 or higher for the maze generator to work. The required python packages are:
 - flask
 - flask_cors
 - graphene

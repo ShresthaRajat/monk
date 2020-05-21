@@ -1,5 +1,5 @@
-import src.maze_generetor.maze as mz
-import src.maze_generetor.maze_svg as sv
+import src.maze_generator.maze as mz
+import src.maze_generator.maze_svg as sv
 import graphene
 from graphene import Int, Float
 
@@ -48,9 +48,9 @@ class MazeQuery(graphene.ObjectType):
     def resolve_get_svg(root, info, size=7, layerApprox=50, seed="", showSolution=False, saveFile=False,
                         fileName="temp", color=False):
         if seed != "":
-            svg_maze = sv.Svg_Generetor(fileName, showSolution, 0, 0, seed)
+            svg_maze = sv.Svg_generator(fileName, showSolution, 0, 0, seed)
         else:
-            svg_maze = sv.Svg_Generetor(fileName, showSolution, size, layerApprox, "")
+            svg_maze = sv.Svg_generator(fileName, showSolution, size, layerApprox, "")
         svg_string = svg_maze.read_svg()
         return_dict = {
             "size": svg_maze.maze.size,

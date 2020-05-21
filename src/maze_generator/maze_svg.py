@@ -1,8 +1,8 @@
 import svgwrite
-import src.maze_generetor.maze as mz
+import src.maze_generator.maze as mz
 
 
-class Svg_Generetor:
+class Svg_generator:
     def __init__(self,
                  file_name="temp",
                  show_solution=False,
