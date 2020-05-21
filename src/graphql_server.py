@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, session, redirect, f
 from flask_cors import CORS  # noqa
 from flask_graphql import GraphQLView
 from dotenv import load_dotenv
-import src.svg_generetor as sv
+import src.maze_generetor.maze_svg as sv
 import pymongo
 import bcrypt
 import os

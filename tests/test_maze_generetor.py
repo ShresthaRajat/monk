@@ -1,4 +1,4 @@
-import src.maze_generator as mz
+import src.maze_generetor.maze as mz
 import pytest  # noqa
 
 

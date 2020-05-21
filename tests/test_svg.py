@@ -1,6 +1,6 @@
 import pytest  # noqa
 from os import listdir, remove
-import src.svg_generetor as svg
+import src.maze_generetor.maze_svg as svg
 
 
 def test_create_svg():

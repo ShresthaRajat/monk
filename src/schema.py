@@ -1,5 +1,5 @@
-import src.maze_generator as mz
-import src.svg_generetor as sv
+import src.maze_generetor.maze as mz
+import src.maze_generetor.maze_svg as sv
 import graphene
 from graphene import Int, Float
 
