@@ -50,6 +50,16 @@ Python 3.5 or higher for the maze generator to work. The required python package
 - pytest-cov
 - flake8
 - svgwrite
+- gunicorn
+- bcrypt
+- python-dotenv
+- pymongo
+- dnspython
+  
+Test Requirements:
+- pytest
+- pytest-cov
+- flake8
 
 > Note: These packages will be auto installed during the setup
 
