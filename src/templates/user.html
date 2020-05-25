@@ -19,7 +19,7 @@
     </div>
 </nav>
 <div class="col-auto col-md-8 align-self-center m-auto" style="text-align: center; margin: auto; ">
-    <form method=POST action="{{ url_for('mazeadd') }}">
+    <form method=POST action="{{ url_for('mazeadd') }}" style="max-width: 500px; margin: auto;">
         <h2 class="text-center"><strong>Add</strong> a maze!!</h2>
         <div class="form-group"><input class="form-control" type="text" name="seed" placeholder="eg ABAB or ABDC"></div>
         <div class="form-group">
@@ -31,10 +31,10 @@
     <div class="row">
         {% for item in data %}
         
-        <div class="col" style="width: 400px; height: 420px; border: black solid 1px; margin:0 auto;">
-            <a href={{ item }} download>Download {{ item.split("/data/")[1] }}</a>
-        
-            <object type="image/svg+xml" data= {{ item }} style="height: 390px; width: 390px; margin: auto;">
+        <div class="col" style="width: 390px; height: 480px; border: black solid 1px; margin:0 auto;">
+            <a class="btn btn-primary" href={{ item }} download>Download {{ item.split("/data/")[1] }}</a>
+        </br></br>
+            <object class="mx-auto" type="image/svg+xml" data= {{ item }} style="height: 390px; min-width: 280px; width: 390px; margin: auto;">
             </object>
         </div>
     {% endfor %}
