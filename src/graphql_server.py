@@ -188,7 +188,7 @@ def mazedelete():
                 'user': session['username'],
                 'seed': x
             })
-            flash("Deleted "+ x)
+            # flash("Deleted "+ x)
             return redirect(url_for('login'))
         else:
             flash('Delete Failed')
