@@ -31,11 +31,16 @@
     <div class="row">
         {% for item in data %}
         
-        <div class="col" style="width: 390px; height: 480px; border: black solid 1px; margin:0 auto;">
+        <div class="col" style="width: 390px; height: 520px; border: black solid 1px; margin:0 auto;">
             <a class="btn btn-primary" href={{ item }} download>Download {{ item.split("/data/")[1] }}</a>
         </br></br>
             <object class="mx-auto" type="image/svg+xml" data= {{ item }} style="height: 390px; min-width: 280px; width: 390px; margin: auto;">
             </object>
+            <form action="{{ url_for('mazedelete') }}" method=post >
+                <input type=hidden value="{{ item }}"name=delete_seed />
+                <button class="btn btn-danger" type=submit>Delete {{ item.split("/")[2].split(".")[0] }}</button>
+              </form>
+            
         </div>
     {% endfor %}
     </div>

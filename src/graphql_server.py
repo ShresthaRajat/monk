@@ -7,7 +7,7 @@ import src.maze_generator.maze_svg as sv
 import pymongo
 import bcrypt
 import os
-import json # noqa
+import json  # noqa
 
 # load schema and dotenv files
 schema = MazeSchema
@@ -95,7 +95,7 @@ def home():
         maze_list = []
         for x in maze_coll.find():
             if x['user'] == session['username']:
-                maze_list.append("static/data/" + x['seed']+'.svg')
+                maze_list.append("static/data/" + x['seed'] + '.svg')
                 gen_maze(1, True, x['seed'], x['seed'])
         return render_template('user.html', data=maze_list)
     return render_template('login.html')
@@ -147,7 +147,7 @@ def seed_check(a):
             flag = False
     if a == "":
         flag = False
-    return(flag)
+    return (flag)
 
 
 @app.route('/mazeadd', methods=['POST', 'GET'])
@@ -155,9 +155,11 @@ def mazeadd():
     if 'username' in session:
         if request.method == 'POST':
             if not request.form.get('agree'):
-                flash('Download is unavailable for publishing. Please agree that you are not publishing the maze')
+                flash(
+                    'Download is unavailable for publishing. Please agree that you are not publishing the maze'
+                )
                 return redirect(url_for('login'))
-            
+
             seed = request.form['seed']
             if not seed_check(seed):
                 flash('Seed can only be combination of A, B, C and D')
@@ -173,4 +175,29 @@ def mazeadd():
     return render_template('register.html')
 
 
-app.add_url_rule("/api", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True))
+@app.route('/mazedelete', methods=['POST', 'GET'])
+def mazedelete():
+    if 'username' in session:
+        if request.method == 'POST':
+            delete_seed = request.form['delete_seed']
+            maze_coll = client.db.maze
+            print(type(delete_seed))
+            x = delete_seed.split("/")[2].split(".")[0]
+            print(x)
+            maze_coll.remove({
+                'user': session['username'],
+                'seed': x
+            })
+            flash("Deleted "+ x)
+            return redirect(url_for('login'))
+        else:
+            flash('Delete Failed')
+            return redirect(url_for('login'))
+    flash('You have to register/login to proceed!.')
+    return render_template('register.html')
+
+
+app.add_url_rule("/api",
+                 view_func=GraphQLView.as_view("graphql",
+                                               schema=schema,
+                                               graphiql=True))
