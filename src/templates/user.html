@@ -18,10 +18,10 @@
             </ul><p style="margin-right: 100px;">{{ session['username'] }}</p><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('logout') }}">Log Out</a></span></div>
     </div>
 </nav>
-<div class="container" style="text-align: center; margin: auto; width:500px">
+<div class="col-auto col-md-8 align-self-center m-auto" style="text-align: center; margin: auto; ">
     <form method=POST action="{{ url_for('mazeadd') }}">
         <h2 class="text-center"><strong>Add</strong> a maze!!</h2>
-        <div class="form-group"><input class="form-control" type="text" name="seed" placeholder="eg AAAA or AAABDC"></div>
+        <div class="form-group"><input class="form-control" type="text" name="seed" placeholder="eg ABAB or ABDC"></div>
         <div class="form-group">
             <input type="checkbox" name="agree" value="Not Nulls">I agree to not publish the maze genereted.</label>
         </div>
@@ -30,6 +30,7 @@
     <h2>Saved mazes:</h2>
     <div class="row">
         {% for item in data %}
+        
         <div class="col" style="width: 400px; height: 420px; border: black solid 1px; margin:0 auto;">
             <a href={{ item }} download>Download {{ item.split("/data/")[1] }}</a>
         
