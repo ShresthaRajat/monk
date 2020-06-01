@@ -67,21 +67,18 @@ For ease of use the whole package to host the API is contenarized in docker so t
 - Docker
 - Docker-compose
 
-## Installation
+## Developer Guide
 
-Clone this repo and run:
+Step 1: Clone this repo:
 
 ```
 git clone https://github.com/ShresthaRajat/mazer.git
 
 cd mazer
-
-pip install -e .
 ```
 
-you can skip this step if you want to use docker (docker-compose insted)
 
-create a .env file with mongo key, flask secret key, and flask debug status
+Step 2: Create a .env file with mongo key, flask secret key, and flask debug status
 
 ```
 MONGO_MAZER_KEY="connection string for python 3.6 or greater"
@@ -90,20 +87,34 @@ DEBUG=True/False
 
 ```
 
-With docker and docker-compose installed run this on the mazer directory:
+Step 3: Install the python module and run app.py
+
+```
+pip install -e .
+
+python -m app
+```
+
+
+Alternative: If you have docker and docker-compose simply run
 
 ```
 docker-compose up --build
 ```
 
-## Usage:
+## Docker Packages
 
-To run the GraphQL server you can run the following command
+Docker packages are available on GitHub packages and DockerHub
 
+To pull docker image from Github:
 ```
-python -m src.graphql_server
+docker pull docker.pkg.github.com/shrestharajat/mazer/mazer:latest
 ```
 
+To pull docker image from DockerHub:
+```
+docker pull shrestharajat/mazer
+```
 
 ## Development
 
