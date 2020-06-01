@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""The setup script or mazer."""
+"""The setup script for mazer."""
 
 from setuptools import setup, find_packages
 import os
