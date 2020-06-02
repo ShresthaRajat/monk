@@ -1,21 +1,20 @@
 # mazer
 
 [![GitHub](https://img.shields.io/badge/developer-ShresthaRajat-black)](AUTHORS.md)
-
 [![Tagged Release](https://img.shields.io/badge/release-v0.2.0-blue.svg?longCache=true)](CHANGELOG.md)
 [![license](https://img.shields.io/badge/license-MPL%202.0-important)](LICENSE)
 [![Development Status](https://img.shields.io/badge/status-beta-green.svg?longCache=true)](ROADMAP.md)
 
 [![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)](https://travis-ci.com/ShresthaRajat/mazer)
-
+[![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/maze-r)](https://maze-r.herokuapp.com)
 
 [![Python package](https://github.com/ShresthaRajat/mazer/workflows/Python%20package/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+package%22)
 [![Python application](https://github.com/ShresthaRajat/mazer/workflows/Python%20application/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+application%22)
 [![Docker Image CI](https://github.com/ShresthaRajat/mazer/workflows/Docker%20Image%20CI/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Docker+Image+CI%22)
+![Docker](https://github.com/ShresthaRajat/mazer/workflows/Docker/badge.svg?branch=master)
 
-[![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
 
-[![Heroku App Status](http://heroku-shields.herokuapp.com/maze-r)](https://maze-r.herokuapp.com)
 
 
 maze generator for maze master project
