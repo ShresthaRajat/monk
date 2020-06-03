@@ -1,9 +1,33 @@
 {% extends "layout.html" %}
 {% block body %}
 <style>
+  svg {
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    margin-left: 2vw;
+    background-color: cadetblue;
+  }
+  svg:hover {
+    /* background-color: rgb(216, 216, 216); */
+  }
+  figure{
+    background-size: cover;
+    text-align: center;
+  }
   .maze {
+    background-size: cover;
+    text-align: center;
     height: 80vh;
-    width: 400px;
+    width: 80vh;
+    /* background-color: bisque; */
+  }
+  @media screen and (max-width: 500px){
+      .maze {
+      height: 400px;
+      width: 400px;
+    }
+  
   }
 </style>
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
@@ -46,7 +70,9 @@
 
       <form method="post" action="{{ url_for('generate') }}">
         <p style="text-align: center;">
-          Choose only one parameter at a time (seed/size)
+          Click on the maze to generate new maze
+        </br></br>
+          
         </p>
         <input class="form-control hidden" type="number" name="size" placeholder="size (optional)">
         <input class="form-control" type="text" name="seed" placeholder="seed (optional)">
@@ -59,8 +85,7 @@
         
       </form>
       
-      <p>
-        Please stick to size 1-5 for now, size 6 and bigger are for experiments!
+      <p>Choose only one parameter at a time (seed/size). mazes of size 7 and bigger might not render properly
       </p>
       </br>
       </br>
