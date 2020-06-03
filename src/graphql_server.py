@@ -36,7 +36,7 @@ def test():
 
 @app.route("/")
 def index():
-    return render_template('index.html', maze=gen_maze(4))
+    return render_template('index.html', maze=gen_maze(6))
 
 
 @app.route("/generate", methods=['POST', 'GET'])
@@ -50,7 +50,7 @@ def generate():
         try:
             size = int(request.form['size'])
         except ValueError:
-            size = 4
+            size = 6
 
         seed = request.form['seed']
         if seed:
@@ -58,7 +58,7 @@ def generate():
                 flash('Seed can only be combination of A, B, C and D')
                 return redirect(url_for('index'))
         if size < 1:
-            size = 4
+            size = 6
 
         if isinstance(seed, str):
             pass
