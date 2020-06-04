@@ -5,7 +5,8 @@
     align-items: center;
     text-align: center;
     background-size: cover;
-    margin-left: 2vw;
+    margin-left: 3vw;
+    /* background-color: blanchedalmond; */
   }
   svg:hover {
     /* background-color: rgb(216, 216, 216); */
@@ -17,13 +18,13 @@
   .maze {
     background-size: cover;
     text-align: center;
-    height: 80vh;
+    height: 70vh;
     width: 80vh;
     /* background-color: bisque; */
   }
   @media screen and (max-width: 500px){
       .maze {
-      height: 400px;
+      height: 600px;
       width: 400px;
     }
   
@@ -31,6 +32,7 @@
 </style>
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
   <div class="container">
+    
     <a class="navbar-brand" href="{{ url_for('index') }}">Mazer</a>
     <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
       <span class="sr-only">Toggle navigation</span>
@@ -55,6 +57,8 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-auto align-self-center m-auto">
+        <p style="text-align: center; padding: 20px;">
+          Click on the maze to generate new maze
         <a href="{{ url_for('index') }}">
           <figure class="maze" style="size:100%;">{{ maze|safe }}</figure>
         </a>
@@ -65,22 +69,20 @@
 
 <div class="features-clean">
   <div class="container">
-    <div class="intro ">
+    <div class="intro " style="text-align: center;">
 
       <form method="post" action="{{ url_for('generate') }}">
-        <p style="text-align: center;">
-          Click on the maze to generate new maze
-        </br></br>
+        
           
         </p>
         <input class="form-control hidden" type="number" name="size" placeholder="size (optional)">
         <input class="form-control" type="text" name="seed" placeholder="seed (optional)">
-        <div class="d-flex justify-content-between">
-          <input type="checkbox" name="solution" value="Not Nulls">
+        <input type="checkbox" name="solution" value="Not Nulls">
         <label class="form-check-label" for="formCheck-1">
           Solution
-        </label><button class="btn btn-primary" style="margin-left: auto;" type="submit">Generate</button>
-        </div>
+        </label>
+      </br>
+        <button class="btn btn-primary" style="margin-left: auto;" type="submit">Generate</button>
         
       </form>
       
