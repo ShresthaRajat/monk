@@ -120,19 +120,21 @@ def register():
             agree = False
         existing_user = users.find_one({'name': request.form['username']})
         if existing_user is None:
-
-            if pass1 == pass2:
-                if agree:
-                    hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
-                    users.insert({
-                        'name': request.form['username'],
-                        'password': hashpass
-                    })
-                    session['username'] = request.form['username']
-                    return redirect(url_for('login'))
-                flash('You have to agree the license terms.')
+            if len(pass1) >= 6:
+                if pass1 == pass2:
+                    if agree:
+                        hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
+                        users.insert({
+                            'name': request.form['username'],
+                            'password': hashpass
+                        })
+                        session['username'] = request.form['username']
+                        return redirect(url_for('login'))
+                    flash('You have to agree the license terms.')
+                    return render_template('register.html')
+                flash('Passwords do not match!')
                 return render_template('register.html')
-            flash('Passwords do not match!')
+            flash('Password must be longer than 6 digits. Please use a strong password')
             return render_template('register.html')
         flash('That username already exists!')
         return render_template('register.html')
