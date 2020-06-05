@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/badge/developer-ShresthaRajat-black)](AUTHORS.md)
 [![license](https://img.shields.io/badge/license-MPL%202.0-important)](LICENSE)
 [![Tagged Release](https://img.shields.io/badge/release-v1.0.0-blue.svg?longCache=true)](CHANGELOG.md)
-[![Development Status](https://img.shields.io/badge/status-stable-blue.svg?longCache=true)(ROADMAP.md)
+[![Development Status](https://img.shields.io/badge/status-stable-blue.svg?longCache=true)](ROADMAP.md)
 
 [![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)](https://travis-ci.com/ShresthaRajat/mazer)
 [![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
