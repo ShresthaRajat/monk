@@ -41,7 +41,6 @@ def index():
 
 @app.route("/generate", methods=['POST', 'GET'])
 def generate():
-
     if request.method == 'POST':
         if request.form.get('solution'):
             solution = True
@@ -96,7 +95,7 @@ def home():
         for x in maze_coll.find():
             if x['user'] == session['username']:
                 maze_list.append("static/data/" + x['seed'] + '.svg')
-                gen_maze(1, True, x['seed'], x['seed'])
+                gen_maze(1, False, x['seed'], x['seed'])
         return render_template('user.html', data=maze_list)
     return render_template('login.html')
 
@@ -138,7 +137,6 @@ def register():
             return render_template('register.html')
         flash('That username already exists!')
         return render_template('register.html')
-
     return render_template('register.html')
 
 
