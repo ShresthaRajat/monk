@@ -18,23 +18,18 @@
 
 
 
-maze generator for maze master project
-
-_**Note:** This project was initially created by [cookiecutter-git](https://github.com/NathanUrwin/cookiecutter-git)!_ :cookie:
+mazer and the maze generator.
 
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Developer Guide](#Developer Guide)
+- [Docker Packages](#Docker Packages)
 - [Development](#development)
   - [Future](#future)
-  - [History](#history)
   - [Community](#community)
-- [Credits](#credits)
-- [License](#license)
 
 ## Features
 This Project can host a simple platform for a maze generator and provides an Endpoint which provides the required information to generate a maze.
@@ -104,17 +99,12 @@ docker-compose up --build
 
 ## Docker Packages
 
-Docker packages are available on GitHub packages and DockerHub
-
-To pull docker image from Github:
+You can simply run the following command if you have docker installed:
 ```
-docker pull docker.pkg.github.com/shrestharajat/mazer/mazer:latest
+sudo docker run -p 8001-8001 shrestharajat/mazer
 ```
 
-To pull docker image from DockerHub:
-```
-docker pull shrestharajat/mazer
-```
+Note: You have to setup connection string inside the docker container for mongo db if you also want to setup CRUD operations
 
 ## Development
 
@@ -123,10 +113,6 @@ See [CONTRIBUTING](CONTRIBUTING.md)
 ### Future
 
 See [ROADMAP](ROADMAP.md)
-
-### History
-
-See [CHANGELOG](CHANGELOG.md)
 
 ### Community
 
