@@ -120,3 +120,4 @@ htmlcov/tests_test_maize_generator_py.html
 htmlcov/tests_test_svg_py.html
 tests/__pycache__/__init__.cpython-37.pyc
 tests/__pycache__/__init__.cpython-37.pyc
+src/static/data/*
