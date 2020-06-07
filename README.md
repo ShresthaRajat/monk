@@ -22,11 +22,10 @@ mazer and the maze generator.
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Developer Guide](#Developer Guide)
-- [Docker Packages](#Docker Packages)
+- [Developer Guide](#developer-guide)
+- [Docker Packages](#docker-packages)
 - [Development](#development)
   - [Future](#future)
   - [Community](#community)
