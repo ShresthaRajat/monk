@@ -72,28 +72,28 @@ def generate():
 def login():
     if request.method == 'POST':
         users = client.db.users
-        login_user = users.find_one({'name': request.form['username']})
-        if login_user and request.form['username'] != "":
-            x = request.form['pass'].encode('utf-8')
-            y = login_user['password']
-            z = login_user['password']
-            if bcrypt.hashpw(x, y) == z:
-                session['username'] = request.form['username']
-                return redirect(url_for('login'))
+        login_user = users.find_one({'pass': request.form['password']})
+        # if login_user and request.form['username'] != "":
+        x = request.form['pass'].encode('utf-8')
+        y = login_user['password']
+        z = login_user['password']
+        if bcrypt.hashpw(x, y) == z:
+            session['password'] = request.form['password']
+            return redirect(url_for('login'))
         flash('Invalid username/password combination')
         return render_template('login.html')
-    elif 'username' in session:
+    elif 'password' in session:
         return redirect(url_for('home'))
     return render_template('login.html')
 
 
 @app.route('/home', methods=['GET'])
 def home():
-    if 'username' in session:
+    if 'password' in session:
         maze_coll = client.db.maze
         maze_list = []
         for x in maze_coll.find():
-            if x['user'] == session['username']:
+            if x['user'] == session['password']:
                 maze_list.append("static/data/" + x['seed'] + '.svg')
                 gen_maze(1, False, x['seed'], x['seed'])
         return render_template('user.html', data=maze_list)
@@ -103,7 +103,7 @@ def home():
 @app.route('/logout')
 def logout():
     # remove the username from the session if it is there
-    session.pop('username', None)
+    session.pop('password', None)
     return redirect(url_for('login'))
 
 
@@ -127,7 +127,7 @@ def register():
                             'name': request.form['username'],
                             'password': hashpass
                         })
-                        session['username'] = request.form['username']
+                        session['password'] = request.form['password']
                         return redirect(url_for('login'))
                     flash('You have to agree the license terms.')
                     return render_template('register.html')
