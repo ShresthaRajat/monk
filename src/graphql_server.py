@@ -74,10 +74,12 @@ def login():
     if request.method == 'POST':
         users = client.db.users
         login_user = users.find_one({'name': request.form['pass']})
+        print(login_user)
         # if login_user and request.form['username'] != "":
-        x = request.form['pass'].encode('utf-8')
+        # x = request.form['pass'].encode('utf-8')
+        # print(y)
         y = login_user['password']
-        z = login_user['password']
+        # z = login_user['password']
         if request.form['pass'] == y:
         # if bcrypt.hashpw(x, y) == z:
             session['password'] = request.form['pass']
@@ -87,8 +89,10 @@ def login():
         return render_template('login.html')
     elif 'password' in session:
         print("yay")
+        return redirect("https://maze-r.herokuapp.com/api", code=302)
+
         return redirect(url_for('home'))
-    return render_template('login.html')
+    return redirect("https://maze-r.herokuapp.com/api", code=302)
 
 
 @app.route('/home', methods=['GET'])
