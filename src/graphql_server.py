@@ -90,9 +90,7 @@ def login():
     elif 'password' in session:
         print("yay")
         return redirect("https://maze-r.herokuapp.com/api", code=302)
-
-        return redirect(url_for('home'))
-    return redirect("https://maze-r.herokuapp.com/api", code=302)
+    return redirect(url_for('login'))
 
 
 @app.route('/home', methods=['GET'])
