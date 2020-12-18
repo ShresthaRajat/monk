@@ -70,26 +70,30 @@ def generate():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    print("session****",session)
     if request.method == 'POST':
         users = client.db.users
-        login_user = users.find_one({'pass': request.form['password']})
+        login_user = users.find_one({'name': request.form['pass']})
         # if login_user and request.form['username'] != "":
         x = request.form['pass'].encode('utf-8')
         y = login_user['password']
         z = login_user['password']
-        if bcrypt.hashpw(x, y) == z:
-            session['password'] = request.form['password']
+        if request.form['pass'] == y:
+        # if bcrypt.hashpw(x, y) == z:
+            session['password'] = request.form['pass']
+            print("yoy")
             return redirect(url_for('login'))
         flash('Invalid username/password combination')
         return render_template('login.html')
     elif 'password' in session:
+        print("yay")
         return redirect(url_for('home'))
     return render_template('login.html')
 
 
 @app.route('/home', methods=['GET'])
 def home():
-    if 'password' in session:
+    if 'username' in session:
         maze_coll = client.db.maze
         maze_list = []
         for x in maze_coll.find():
@@ -103,7 +107,7 @@ def home():
 @app.route('/logout')
 def logout():
     # remove the username from the session if it is there
-    session.pop('password', None)
+    session.pop('username', None)
     return redirect(url_for('login'))
 
 
@@ -117,17 +121,18 @@ def register():
             agree = True
         else:
             agree = False
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'name': request.form['pass1']})
         if existing_user is None:
             if len(pass1) >= 6:
                 if pass1 == pass2:
                     if agree:
-                        hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
+                        # hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
+                        hashpass = pass1
                         users.insert({
-                            'name': request.form['username'],
-                            'password': hashpass
+                            'name': request.form['pass1'],
+                            'password': request.form['pass1']
                         })
-                        session['password'] = request.form['password']
+                        session['password'] = request.form['pass1']
                         return redirect(url_for('login'))
                     flash('You have to agree the license terms.')
                     return render_template('register.html')
@@ -166,7 +171,7 @@ def mazeadd():
                 return redirect(url_for('login'))
 
             maze_coll = client.db.maze
-            maze_coll.insert({'user': session['username'], 'seed': seed})
+            maze_coll.insert({'user': session['password'], 'seed': seed})
             return redirect(url_for('login'))
         else:
             flash('Adding Failed')
@@ -185,7 +190,7 @@ def mazedelete():
             x = delete_seed.split("/")[2].split(".")[0]
             print(x)
             maze_coll.remove({
-                'user': session['username'],
+                'user': session['password'],
                 'seed': x
             })
             # flash("Deleted "+ x)
