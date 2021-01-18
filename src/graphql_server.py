@@ -70,26 +70,20 @@ def generate():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    print("session****",session)
     if request.method == 'POST':
         users = client.db.users
-        login_user = users.find_one({'name': request.form['pass']})
-        print(login_user)
-        # if login_user and request.form['username'] != "":
-        # x = request.form['pass'].encode('utf-8')
-        # print(y)
-        y = login_user['password']
-        # z = login_user['password']
-        if request.form['pass'] == y:
-        # if bcrypt.hashpw(x, y) == z:
-            session['password'] = request.form['pass']
-            print("yoy")
-            return redirect(url_for('login'))
+        login_user = users.find_one({'name': request.form['username']})
+        if login_user and request.form['username'] != "":
+            x = request.form['pass'].encode('utf-8')
+            y = login_user['password']
+            z = login_user['password']
+            if bcrypt.hashpw(x, y) == z:
+                session['username'] = request.form['username']
+                return redirect(url_for('login'))
         flash('Invalid username/password combination')
         return render_template('login.html')
-    elif 'password' in session:
-        print("yay")
-        return redirect("https://maze-r.herokuapp.com/api", code=302)
+    elif 'username' in session:
+        return redirect(url_for('home'))
     return render_template('login.html')
 
 
@@ -99,7 +93,7 @@ def home():
         maze_coll = client.db.maze
         maze_list = []
         for x in maze_coll.find():
-            if x['user'] == session['password']:
+            if x['user'] == session['username']:
                 maze_list.append("static/data/" + x['seed'] + '.svg')
                 gen_maze(1, False, x['seed'], x['seed'])
         return render_template('user.html', data=maze_list)
@@ -123,18 +117,17 @@ def register():
             agree = True
         else:
             agree = False
-        existing_user = users.find_one({'name': request.form['pass1']})
+        existing_user = users.find_one({'name': request.form['username']})
         if existing_user is None:
             if len(pass1) >= 6:
                 if pass1 == pass2:
                     if agree:
-                        # hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
-                        hashpass = pass1
+                        hashpass = bcrypt.hashpw(pass1, bcrypt.gensalt())
                         users.insert({
-                            'name': request.form['pass1'],
-                            'password': request.form['pass1']
+                            'name': request.form['username'],
+                            'password': hashpass
                         })
-                        session['password'] = request.form['pass1']
+                        session['username'] = request.form['username']
                         return redirect(url_for('login'))
                     flash('You have to agree the license terms.')
                     return render_template('register.html')
@@ -173,7 +166,7 @@ def mazeadd():
                 return redirect(url_for('login'))
 
             maze_coll = client.db.maze
-            maze_coll.insert({'user': session['password'], 'seed': seed})
+            maze_coll.insert({'user': session['username'], 'seed': seed})
             return redirect(url_for('login'))
         else:
             flash('Adding Failed')
@@ -192,7 +185,7 @@ def mazedelete():
             x = delete_seed.split("/")[2].split(".")[0]
             print(x)
             maze_coll.remove({
-                'user': session['password'],
+                'user': session['username'],
                 'seed': x
             })
             # flash("Deleted "+ x)
