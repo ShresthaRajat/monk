@@ -8,7 +8,6 @@
 
 [![build Status](https://travis-ci.com/ShresthaRajat/mazer.svg?token=vfBmyikLTqJ4tJUVico1&branch=master)](https://travis-ci.com/ShresthaRajat/mazer)
 [![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
-[![Heroku App Status](http://heroku-shields.herokuapp.com/maze-r)](https://maze-r.herokuapp.com)
 
 [![Python package](https://github.com/ShresthaRajat/mazer/workflows/Python%20package/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+package%22)
 [![Python application](https://github.com/ShresthaRajat/mazer/workflows/Python%20application/badge.svg?branch=master)](https://github.com/ShresthaRajat/mazer/actions?query=workflow%3A%22Python+application%22)
@@ -16,50 +15,11 @@
 ![Docker](https://github.com/ShresthaRajat/mazer/workflows/Docker/badge.svg?branch=master)
 
 
-
-
-mazer and the maze generator.
-
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Developer Guide](#developer-guide)
-- [Docker Packages](#docker-packages)
-- [Development](#development)
-  - [Future](#future)
-  - [Community](#community)
-
 ## Features
 This Project can host a simple platform for a maze generator and provides an Endpoint which provides the required information to generate a maze.
 
 ## Requirements
-Python 3.5 or higher for the maze generator to work. The required python packages are:
-- flask
-- flask_cors
-- graphene
-- flask_graphql
-- turtleplus
-- pytest
-- pytest-cov
-- flake8
-- svgwrite
-- gunicorn
-- bcrypt
-- python-dotenv
-- pymongo
-- dnspython
-  
-Test Requirements:
-- pytest
-- pytest-cov
-- flake8
-
-> Note: These packages will be auto installed during the setup
-
-For ease of use the whole package to host the API is contenarized in docker so the following are recommended but not necessary:
-- Docker
-- Docker-compose
+Docker
 
 ## Developer Guide
 
