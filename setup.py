@@ -17,8 +17,7 @@ requirements = ['flask==1.1.1',
                 'svgwrite==1.4',
                 'pymongo==3.10.1',
                 'bcrypt==3.1.7',
-                'python-dotenv==0.13.0',
-                'dnspython==1.16.0'
+                'python-dotenv==0.13.0'
                 ]
 
 test_requirements = ['pytest==5.4.1',
@@ -27,7 +26,7 @@ test_requirements = ['pytest==5.4.1',
 
 setup(
     author="Rajat Shestha",
-    author_email='rajat.shrestha@eydean.com',
+    author_email='shrestharajat@hotmail.com',
     python_requires='>=3.5',
     classifiers=[
         'Development Status :: 2 - Alpha',

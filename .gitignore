@@ -1,123 +1,74 @@
-
-# Created by https://www.gitignore.io/api/linux,windows,macos,git
-# Edit at https://www.gitignore.io/?templates=linux,windows,macos,git
-
-### Git ###
-# Created by git for backups. To disable backups in Git:
-# $ git config --global mergetool.keepBackup false
-*.orig
-
-# Created by git when using merge tools for conflicts
-*.BACKUP.*
-*.BASE.*
-*.LOCAL.*
-*.REMOTE.*
-*_BACKUP_*.txt
-*_BASE_*.txt
-*_LOCAL_*.txt
-*_REMOTE_*.txt
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
-
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must end with two \r
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# End of https://www.gitignore.io/api/linux,windows,macos,git
-.env
 __pycache__
-mazer.egg-info
-.coverage
-tests/__pycache__/__init__.cpython-37.pyc
-.vscode/settings.json
-tests/__pycache__/
-.vscode
-htmlcov/app_py.html
-htmlcov/coverage_html.js
-htmlcov/index.html
-htmlcov/jquery.ba-throttle-debounce.min.js
-htmlcov/jquery.hotkeys.js
-htmlcov/jquery.isonscreen.js
-htmlcov/jquery.min.js
-htmlcov/jquery.tablesorter.min.js
-htmlcov/keybd_closed.png
-htmlcov/keybd_open.png
-htmlcov/setup_py.html
-htmlcov/src___init___py.html
-htmlcov/src_graphql_server_py.html
-htmlcov/src_maze_generator_py.html
-htmlcov/src_schema_py.html
-htmlcov/src_svg_generator_py.html
-htmlcov/status.json
-htmlcov/style.css
-htmlcov/tests___init___py.html
-htmlcov/tests_maze_turtle_py.html
-htmlcov/tests_test_graphql_server_py.html
-htmlcov/tests_test_maize_generator_py.html
-htmlcov/tests_test_svg_py.html
-tests/__pycache__/__init__.cpython-37.pyc
-tests/__pycache__/__init__.cpython-37.pyc
-src/static/data/*
+*.py[cod]
+*$py.class
+
+# Distribution / packaging 
+.Python build/ 
+develop-eggs/ 
+dist/ 
+downloads/ 
+eggs/ 
+.eggs/ 
+lib/ 
+lib64/ 
+parts/ 
+sdist/ 
+var/ 
+wheels/ 
+*.egg-info/ 
+.installed.cfg 
+*.egg 
+*.manifest 
+*.spec 
+
+# Log files
+pip-log.txt
+pip-delete-this-directory.txt
+*.log
+
+# Unit test / coverage reports 
+htmlcov/ 
+.tox/ 
+.coverage 
+.coverage.* 
+.cache 
+.pytest_cache/ 
+nosetests.xml 
+coverage.xml 
+*.cover 
+.hypothesis/ 
+
+# Translations
+*.mo
+*.pot
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pyflow
+__pypackages__/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
