@@ -8,7 +8,7 @@ A simple and artistic maze generator!
 
 [![codecov](https://codecov.io/gh/ShresthaRajat/mazer/branch/master/graph/badge.svg?token=TQYCIP62MZ)](https://codecov.io/gh/ShresthaRajat/mazer)
 
-![Docker](https://github.com/ShresthaRajat/mazer/workflows/Docker/badge.svg?branch=master)
+[![GitHubActions](https://github.com/ShresthaRajat/mazer/actions/workflows/pipeline.yml/badge.svg)](https://github.com/ShresthaRajat/mazer/actions/workflows/pipeline.yml)
 
 
 ## Requirements
