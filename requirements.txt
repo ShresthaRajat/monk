@@ -1,4 +1,4 @@
-flask==2.2.2
+flask==2.2.5
 flask_cors==3.0.9
 graphene==2.1.8
 flask_graphql==2.0.1

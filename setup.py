@@ -9,7 +9,7 @@ from glob import glob
 # os.system('bash install.sh')
 
 
-requirements = ['flask==1.1.1',
+requirements = ['flask==2.2.5',
                 'flask_cors==3.0.9',
                 'graphene==2.1.8',
                 'flask_graphql==2.0.1',
