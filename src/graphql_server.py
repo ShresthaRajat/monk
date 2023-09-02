@@ -18,9 +18,14 @@ app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'mongo'
 app.debug = os.getenv('DEBUG')
 app.secret_key = os.getenv("SECRET_KEY")
+mongouser = os.getenv("MONGO_INITDB_ROOT_USERNAME")
+mongopass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
+mongoip = os.getenv("MONGO_IP")
 
 # mongo db configs
-client = pymongo.MongoClient(os.getenv("MONGO_MAZER_KEY"))
+empty_string = "mongodb://{}:{}@{}:27017/?authMechanism=DEFAULT"
+connection_string = empty_string.format(mongouser, mongopass ,mongoip)
+client = pymongo.MongoClient(connection_string)
 db = client["mydatabase"]
 
 

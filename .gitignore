@@ -1,6 +1,11 @@
 __pycache__
 *.py[cod]
 *$py.class
+venv*
+mongo*
+src/static/data/*
+data*
+src/static/data/page.svg
 
 # Distribution / packaging 
 .Python build/ 
