@@ -40,7 +40,7 @@ mazer:
       env: MONGO_INITDB_ROOT_PASSWORD
       type: string
       description: Password for MongoDB user.
-      value: 'root'
+      value: 'password'
     mongo-ip:
       env: MONGO_IP
       type: string
