@@ -3,9 +3,7 @@ mazer:
   defines: runnable
   metadata:
     name: mazer
-    description: >-
-      A graphQL server application written in Python that uses MongoDB as a
-      database.
+    description: A graphQL server application written in Python that uses MongoDB as a database.
     icon: https://emojiapi.dev/api/v1/robot.svg
   containers:
     mazer:
@@ -27,22 +25,22 @@ mazer:
       env: DEBUG
       type: string
       description: Turns on debugging features in Flask.
-      value: '!!!SETME!!!'
+      value: 'true'
     secret-key:
       env: SECRET_KEY
       type: string
       description: Used for securely signing the session cookie.
-      value: '!!!SETME!!!'
+      value: '123123'
     mongo-initdb-root-username:
       env: MONGO_INITDB_ROOT_USERNAME
       type: string
       description: Username for MongoDB database.
-      value: '!!!SETME!!!'
+      value: 'root'
     mongo-initdb-root-password:
       env: MONGO_INITDB_ROOT_PASSWORD
       type: string
       description: Password for MongoDB user.
-      value: '!!!SETME!!!'
+      value: 'root'
     mongo-ip:
       env: MONGO_IP
       type: string
@@ -52,4 +50,4 @@ mazer:
       env: MONGO_PORT
       type: string
       description: Port of mongo service.
-      value: <- connection-port("mongo-db")
+      value: 27017
