@@ -11,8 +11,8 @@ mazer:
   services:
     app-port:
       container: mazer
-      port: 8080
-      host-port: 8080
+      port: 80
+      host-port: 80
       publish: false
       protocol: TCP
       description: The port on which the application server listens.

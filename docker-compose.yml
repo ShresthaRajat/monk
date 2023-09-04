@@ -29,7 +29,7 @@ services:
         networks: 
             - backend
         ports: 
-            - 8080:8080
+            - 80:80
         environment:
             - DEBUG
             - SECRET_KEY
