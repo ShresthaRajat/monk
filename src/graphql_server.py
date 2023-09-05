@@ -17,10 +17,10 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'mongo'
 app.debug = os.getenv('DEBUG')
-app.secret_key = os.getenv("SECRET_KEY")
-mongouser = os.getenv("MONGO_INITDB_ROOT_USERNAME")
-mongopass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
-mongoip = os.getenv("MONGO_IP")
+app.secret_key = os.getenv("SECRET_KEY") or "asdasdasd"
+mongouser = os.getenv("MONGO_INITDB_ROOT_USERNAME") or "root"
+mongopass = os.getenv("MONGO_INITDB_ROOT_PASSWORD") or "password"
+mongoip = os.getenv("MONGO_IP") or "localhost"
 
 # mongo db configs
 empty_string = "mongodb://{}:{}@{}:27017/?authMechanism=DEFAULT"
