@@ -3,8 +3,8 @@ monk:
   defines: runnable
   metadata:
     name: monk
-    description: A maze generation and solving application.
-    icon: https://emojiapi.dev/api/v1/globe_with_meridians.svg
+    description: A Flask and GraphQL based Maze generator.
+    icon: https://emojiapi.dev/api/v1/jigsaw.svg
   containers:
     monk:
       build: .
@@ -15,7 +15,7 @@ monk:
       host-port: 80
       publish: false
       protocol: TCP
-      description: Standard HTTP port
+      description: The application's main HTTP interface
   connections:
     mongodb:
       target: mongodb/mongodb
@@ -24,30 +24,30 @@ monk:
     debug:
       env: DEBUG
       type: string
-      description: Toggle debug mode
-      value: 'false'
+      description: Controls if the application is in debug mode
+      value: 'False'
     secret-key:
       env: SECRET_KEY
       type: string
-      description: Secret key for cryptographic components
+      description: The secret key used for sessions
       value: '!!!SETME-USE-SECRETS!!!'
     mongo-initdb-root-username:
       env: MONGO_INITDB_ROOT_USERNAME
       type: string
-      description: Username for MongoDB connection
+      description: Username for MongoDB root connection
       value: '!!!SETME-USE-SECRETS!!!'
     mongo-initdb-root-password:
       env: MONGO_INITDB_ROOT_PASSWORD
       type: string
-      description: Password for MongoDB connection
+      description: Password for MongoDB root connection
       value: '!!!SETME-USE-SECRETS!!!'
     mongo-ip:
       env: MONGO_IP
       type: string
-      description: Host IP address for MongoDB
+      description: The host of MongoDB server
       value: <- connection-hostname("mongodb")
-    mongodb-port:
-      env: MONGODB_PORT
+    mongo-port:
+      env: MONGO_PORT
       type: string
-      description: Port for MongoDB connection
+      description: The port of MongoDB server
       value: <- connection-port("mongodb")
