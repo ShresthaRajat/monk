@@ -1,0 +1,53 @@
+namespace: monk
+monk:
+  defines: runnable
+  metadata:
+    name: monk
+    description: A maze generation and solving application.
+    icon: https://emojiapi.dev/api/v1/globe_with_meridians.svg
+  containers:
+    monk:
+      build: .
+  services:
+    http:
+      container: monk
+      port: 80
+      host-port: 80
+      publish: false
+      protocol: TCP
+      description: Standard HTTP port
+  connections:
+    mongodb:
+      target: mongodb/mongodb
+      service: mongodb
+  variables:
+    debug:
+      env: DEBUG
+      type: string
+      description: Toggle debug mode
+      value: 'false'
+    secret-key:
+      env: SECRET_KEY
+      type: string
+      description: Secret key for cryptographic components
+      value: '!!!SETME-USE-SECRETS!!!'
+    mongo-initdb-root-username:
+      env: MONGO_INITDB_ROOT_USERNAME
+      type: string
+      description: Username for MongoDB connection
+      value: '!!!SETME-USE-SECRETS!!!'
+    mongo-initdb-root-password:
+      env: MONGO_INITDB_ROOT_PASSWORD
+      type: string
+      description: Password for MongoDB connection
+      value: '!!!SETME-USE-SECRETS!!!'
+    mongo-ip:
+      env: MONGO_IP
+      type: string
+      description: Host IP address for MongoDB
+      value: <- connection-hostname("mongodb")
+    mongodb-port:
+      env: MONGODB_PORT
+      type: string
+      description: Port for MongoDB connection
+      value: <- connection-port("mongodb")
